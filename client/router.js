@@ -1,6 +1,6 @@
 
 Router.configure({
-    layoutTemplate: 'stash'
+    layoutTemplate: 'stack'
 });
 
 Router.map(function() {

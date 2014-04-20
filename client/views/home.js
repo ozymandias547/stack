@@ -1,40 +1,40 @@
 // controller for home.html
-document.title = "Stash Home";
+document.title = "Stack Home";
 
-Meteor.subscribe("stash");
+Meteor.subscribe("stack");
 
 Session.set("selected", "none");
 
 Template.home.helpers({
-	stashes : function() {
-		return Stash.find().fetch();
+	stacks : function() {
+		return Stack.find().fetch();
 	},
 	tasks : function() {
 		
 		var selected = Session.get("selected");
 
 		if (selected!=="none"){
-			console.log(Stash.findOne({ _id : selected }).tasks);
-			return Stash.findOne({ _id : selected }).tasks;
+			console.log(Stack.findOne({ _id : selected }).tasks);
+			return Stack.findOne({ _id : selected }).tasks;
 		}
 		else return [];
 	}
 })
 
 Template.home.events({
-	"keydown .addStash" : function(event) {
+	"keydown .addStack" : function(event) {
 		console.log(event);
 		if (event.keyCode==13 && event.target.value !== "") {
-			Stash.insert({ name: event.target.value});
+			Stack.insert({ name: event.target.value});
 			event.target.value = "";
 		}
 	},
-	"click .deleteStash" : function(event) {
+	"click .deleteStack" : function(event) {
 		var confirmed = confirm("Are you sure?");
-		if (confirmed) Stash.remove(this._id);
+		if (confirmed) Stack.remove(this._id);
 	},
-	"click .stash" : function(event) {
-		$(".stash.selected").each(function() { $(this).removeClass("selected") });
+	"click .stack" : function(event) {
+		$(".stack.selected").each(function() { $(this).removeClass("selected") });
 		$(event.currentTarget).addClass("selected");
 		Session.set("selected", this._id);
 	},
@@ -42,7 +42,7 @@ Template.home.events({
 		var selected = Session.get("selected");
 
 		if (selected!=="none") {
-			Stash.update(selected, { $push: { tasks: "hi" } })
+			Stack.update(selected, { $push: { tasks: "hi" } })
 		}
 	}
 });

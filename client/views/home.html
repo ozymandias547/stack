@@ -1,20 +1,20 @@
 <template name='home'>
 	<div class="navbar">
 		<div class="profilePic"></div>
-		<div class="title">Home stash</div> 
+		<div class="title">Stack Title</div> 
 	</div>
 	<div class="content clear">
 		<div class="leftContent clear">
-			<div class="stashHeader">Stashes</div>
-			{{#each stashes}}
-				<div class="stash">
+			<div class="stackHeader">Stacks</div>
+			{{#each stacks}}
+				<div class="stack">
 				<img src="images/home_inactive.png" />
-					<div class="deleteStash">X</div>
+					<div class="deleteStack">X</div>
 					<div>{{name}}</div>
 				</div>
 				
 			{{/each}}
-				<input class="addStash" type="text" placeholder="new stash"/>
+				<input class="addStack" type="text" placeholder="new stack"/>
 		</div>
 		<div class="rightContent clear">
 				{{#each tasks}}

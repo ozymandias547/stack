@@ -1,14 +1,14 @@
-Meteor.publish('stash', function() {
-	return Stash.find();
+Meteor.publish('stack', function() {
+	return Stack.find();
 });
 
-if(!Stash.find().count()) {
-    Stash.insert({
+if(!Stack.find().count()) {
+    Stack.insert({
        name: "Home",
        tasks: ["Do this", "do that", "Do the other thing"]
     });
 
-    Stash.insert({
+    Stack.insert({
        name: "Work",
        tasks: ["Do More!", "Get paid less?"]
     });
