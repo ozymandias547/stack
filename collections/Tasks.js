@@ -1,6 +1,6 @@
-Stash = new Meteor.Collection('stash');
+Tasks = new Meteor.Collection('tasks');
 
-Stash.allow({
+Tasks.allow({
 	insert : function(userId, doc) {
 		return true;
 	},
@@ -11,3 +11,4 @@ Stash.allow({
 		return true;
 	}
 });
+

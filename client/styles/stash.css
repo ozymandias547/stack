@@ -4,6 +4,7 @@ body {
     font-family: arial;
     background-color: #ddd;
 }
+
 .clear:before, .clear:after {
     content:" ";
     display: table;
@@ -11,6 +12,7 @@ body {
 .clear:after {
     clear: both;
 }
+
 .container {
     width: 96%;
     margin-left: 2%;
@@ -22,13 +24,15 @@ body {
     border-radius: 2px;
     border: 1px solid #aaa;
 }
+
 .navbar {
     width: 98%;
     margin: 0 1% 2% 1%;
     height: 60px;
     border-bottom: 1px solid #eee;
     text-align: center;
-   }
+}
+
 .navbar .title {
     margin: 0;
     display: inline-block;
@@ -36,6 +40,7 @@ body {
     font-size: 26px;
     width: 96%;
 }
+
 .navbar .profilePic {
     width: 60px;
     height: 60px;
@@ -44,28 +49,58 @@ body {
     border: 1px solid black;
     position: absolute;
 }
+
 .content .leftContent {
     margin: 0 0 0 1%;
     width: 8%;
     float: left;
     text-align: center;
 }
+
 .content {
     margin: 1% 0 0 0;
 }
+
 .content .leftContent img {
     display: inline-block;
     height: 50px;
     width: 50px;
 }
+
 .content .leftContent .stashHeader {
 	font-size: 12px;
 	text-decoration: underline;
+    position: relative;
 }
+
+.content .leftContent .stash {
+    position: relative;
+}
+
+.content .leftContent .stash .deleteStash {
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    font-size: 12px;
+}
+.content .leftContent .stash.selected .deleteStash {
+    color: gray;
+}
+.content .leftContent .stash .deleteStash:hover {
+   color: gray;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
 .content .leftContent img:hover {
     content: url("/images/home_active.png");
     cursor: pointer;
 }
+.content .leftContent .selected img {
+    content: url("/images/home_active.png");
+}
+
 .content .rightContent {
     margin: 0 0 0 1%;
     width: 80%;

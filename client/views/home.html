@@ -6,14 +6,20 @@
 	<div class="content clear">
 		<div class="leftContent clear">
 			<div class="stashHeader">Stashes</div>
-			<img src="images/home_inactive.png" />
-			<img src="images/home_inactive.png" />
-			<img src="images/home_inactive.png" />
+			{{#each stashes}}
+				<div class="stash">
+				<img src="images/home_inactive.png" />
+					<div class="deleteStash">X</div>
+					<div>{{name}}</div>
+				</div>
+				
+			{{/each}}
+				<input class="addStash" type="text" placeholder="new stash"/>
 		</div>
 		<div class="rightContent clear">
-			<div class="task">Task 1</div>
-			<div class="task">Task 2</div>
-			<div class="task">Task 3</div>
+				{{#each tasks}}
+					<div class="task">{{this}}</div>
+				{{/each}}
 			<div class="task addTask">+</div>
 		</div>
 	</div>
