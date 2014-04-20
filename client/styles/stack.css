@@ -67,26 +67,26 @@ body {
     width: 50px;
 }
 
-.content .leftContent .stashHeader {
+.content .leftContent .stackHeader {
 	font-size: 12px;
 	text-decoration: underline;
     position: relative;
 }
 
-.content .leftContent .stash {
+.content .leftContent .stack {
     position: relative;
 }
 
-.content .leftContent .stash .deleteStash {
+.content .leftContent .stack .deleteStack {
     position: absolute;
     top: 5px;
     right: 18px;
     font-size: 12px;
 }
-.content .leftContent .stash.selected .deleteStash {
+.content .leftContent .stack.selected .deleteStack {
     color: gray;
 }
-.content .leftContent .stash .deleteStash:hover {
+.content .leftContent .stack .deleteStack:hover {
    color: gray;
     cursor: pointer;
     font-size: 14px;

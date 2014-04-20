@@ -1,6 +1,6 @@
-Stash = new Meteor.Collection('stash');
+Stack = new Meteor.Collection('stack');
 
-Stash.allow({
+Stack.allow({
 	insert : function(userId, doc) {
 		return true;
 	},
