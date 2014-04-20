@@ -1,0 +1,99 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    background-color: #ddd;
+}
+.clear:before, .clear:after {
+    content:" ";
+    display: table;
+}
+.clear:after {
+    clear: both;
+}
+.container {
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 2%;
+     -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+}
+.navbar {
+    width: 98%;
+    margin: 0 1% 2% 1%;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+   }
+.navbar .title {
+    margin: 0;
+    display: inline-block;
+    line-height: 60px;
+    font-size: 26px;
+    width: 96%;
+}
+.navbar .profilePic {
+    width: 60px;
+    height: 60px;
+    margin: 1% 0 0 1%;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+}
+.content .leftContent {
+    margin: 0 0 0 1%;
+    width: 8%;
+    float: left;
+    text-align: center;
+}
+.content {
+    margin: 1% 0 0 0;
+}
+.content .leftContent img {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+.content .leftContent .stashHeader {
+	font-size: 12px;
+	text-decoration: underline;
+}
+.content .leftContent img:hover {
+    content: url("/images/home_active.png");
+    cursor: pointer;
+}
+.content .rightContent {
+    margin: 0 0 0 1%;
+    width: 80%;
+    float: left;
+    text-align: center;
+}
+
+.content .rightContent .task:first-child	 {
+   margin-top: 2%;
+}
+.content .rightContent .task {
+    display: inline-block;
+    width: 80%;
+    min-width: 200px;
+    min-height: 70px;
+    border: 1px solid #ddd;
+    margin-bottom: 2%;
+}
+.content .rightContent .task:last-child	 {
+   margin-bottom: 4%;
+}
+
+.addTask {
+	line-height: 70px;
+	font-size: 30px;
+}
+.addTask:hover {
+	background-color: rgba(0, 100, 0, .5);
+	color: white;
+	cursor: pointer;
+}
