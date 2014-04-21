@@ -132,3 +132,9 @@ body {
 	color: white;
 	cursor: pointer;
 }
+#login-buttons {
+    padding: 0.25em;
+    position:absolute;
+    right: 0;
+    top:0;
+}
