@@ -4,6 +4,15 @@ Router.configure({
 
 Router.map(function() {
     this.route('home', {
-        path: '/'
+        path: '/',
+        action: function() {
+            if (!Meteor.user()) {
+                console.log("No user defined!");
+                this.render('login');
+            } else {
+                this.render('home');
+            }
+
+        }
     });
 });
