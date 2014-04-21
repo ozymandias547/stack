@@ -1,27 +1,37 @@
 <template name='home'>
-Blah blah blah
-	<div class="navbar">
-		<div class="profilePic"></div>
-		<div class="title">Stack Title</div> 
-	</div>
-	<div class="content clear">
-		<div class="leftContent clear">
-			<div class="stackHeader">Stacks</div>
-			{{#each stacks}}
-				<div class="stack">
-				<img src="images/home_inactive.png" />
-					<div class="deleteStack">X</div>
-					<div>{{name}}</div>
-				</div>
-				
-			{{/each}}
-				<input class="addStack" type="text" placeholder="new stack"/>
-		</div>
-		<div class="rightContent clear">
-				{{#each tasks}}
-					<div class="task">{{this}}</div>
-				{{/each}}
-			<div class="task addTask">+</div>
-		</div>
-	</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" id="stack1">
+                <div class="stackTitle">Work</div>
+                {{#each tasks}}
+                <div class="task">{{this}}</div>
+                {{/each}}
+                <div class="task addTask">+</div>
+            </div>
+            <div class="col-md-4" id="stack2">
+                <div class="stackTitle">Work</div>
+                {{#each tasks}}
+                <div class="task">{{this}}</div>
+                {{/each}}
+                <div class="task addTask">+</div>
+            </div>
+            <div class="col-md-4" id="stack3">
+                <div class="stackTitle">Work</div>
+                {{#each tasks}}
+                <div class="task">{{this}}</div>
+                {{/each}}
+                <div class="task addTask">+</div>
+            </div>
+        </div>
+    </div>
+    <div class="stickyFooter">
+        <div class="previousStack changeStack">previous</div>
+        <div class="nextStack changeStack">next</div>
+        <div class="footerCenter">
+            <input type="text" class="form-control" placeholder="Text input">
+            <button>search</button>
+            <button>logout</button>
+            <button>new stack</button>
+        </div>
+    </div>
 </template>
