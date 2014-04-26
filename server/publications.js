@@ -12,14 +12,12 @@ Meteor.publish('stacks', function(userId) {
     if (!count) {
         Stack.insert({
             name: "Home",
-            userId: userId,
-            tasks: []
+            userId: userId
         });
 
         Stack.insert({
             name: "Work",
-            userId: userId,
-            tasks: []
+            userId: userId
         });
     }
 
@@ -28,8 +26,8 @@ Meteor.publish('stacks', function(userId) {
     });
 });
 
-Meteor.publish('tasks', function(stackId) {
+Meteor.publish('tasks', function(userId) {
     return Task.find({
-        stackId: stackId
+        userId: userId
     });
 });

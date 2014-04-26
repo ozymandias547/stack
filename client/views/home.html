@@ -3,20 +3,32 @@
         
         {{#each stacks}}
 			<div class="stackRow">
-                <div class="stackTitle">{{name}}</div>
-                <div class="stackTitle text-align-right upper-right stackRowRemove"><a href="" id="{{_id}}">-</a></div>
-           	 </div>
+                <div class="stackTitle" id="{{_id}}">
+                    <a href="">{{name}} Stack</a>
+                </div>
+                <div class="stackTitle text-align-right upper-right stackRowRemove">
+                    <a href="" id="{{_id}}">-</a>
+                </div>
+                {{#each tasks _id}}
+                 <div class="taskRow">
+                    <div class="taskTitle" id="task_{{_id}}">
+                        {{name}}
+                    </div>
+                    <div class="taskTitle text-align-right right taskRowRemove" id="{{_id}}">
+                        <a href="">Finish!</a>
+                    </div>
+                 </div>
+                 {{/each}}
+                 <div class="taskRowAdd taskRowAddInput" id="{{_id}}">
+                    <input id='taskRowAddInput_{{_id}}' style='display:none;'/>
+                    <div class="taskTitleAdd" id="taskRowAddInputButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} Task</a></div>
+                </div>
+           	</div>
 		{{/each}}
         
         <div class="stackRowAdd stackRowAddInput">
             <input id='stackRowAddInput' style='display:none;'/>
-            <div class="stackTitle text-align-right"><a href="">+</a></div>
-        </div>
-    </div>
-    <div class="stickyFooter">
-        <div class="footerCenter">
-            <input type="text" class="form-control" placeholder="Text input">
-            <button>search</button>
+            <div class="stackTitle text-align-right" id="stackRowAddInputButton"><a href="">+ Stack</a></div>
         </div>
     </div>
 </template>

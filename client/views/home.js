@@ -1,40 +1,44 @@
 // controller for home.html
 document.title = "Stack Home";
 
-var NULL = "null";
-
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
+    Meteor.subscribe("tasks", Meteor.userId());
 });
-
-Session.set("selectedID", NULL);
 
 Template.home.helpers({
     stacks: function() {
         return Stack.find().fetch();
     },
-    tasks: function() {
-        return Session.get("selectedID") !== NULL ? Stack.findOne({
-            _id: Session.get("selectedID")
-        }).tasks : [];
+    tasks: function(stack) {
+        return Task.find({
+            stackId: stack
+        });
     }
 });
 
 Template.home.events({
     "keydown .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
+        var button = document.getElementById('stackRowAddInputButton');
         if (event.keyCode == 13) {
-            Stack.insert({
-                userId: Meteor.userId(),
-                name: input.value
-            });
+            if (input.value != '') {
+                Stack.insert({
+                    userId: Meteor.userId(),
+                    name: input.value
+                });
+            }
             input.value = '';
             input.style.display = 'none';
+            button.style.display = 'block';
         }
     },
     "click .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
+        var button = document.getElementById('stackRowAddInputButton');
+
         input.style.display = 'inline';
+        button.style.display = 'none';
         input.focus();
     },
     "click .stackRowRemove": function(event) {
@@ -44,25 +48,36 @@ Template.home.events({
             _id: stackId
         });
     },
-    "click .deleteStack": function(event) {
-        if (confirm("Are you sure?")) {
-            Stack.remove(this._id);
+    "keydown .taskRowAddInput": function(event) {
+        var id = event.target.parentElement.id;
+        var input = document.getElementById('taskRowAddInput_' + id);
+        var button = document.getElementById('taskRowAddInputButton_' + id);
+        if (event.keyCode == 13) {
+            if (input.value != '') {
+                Task.insert({
+                    userId: Meteor.userId(),
+                    stackId: id,
+                    name: input.value
+                });
+            }
+            input.value = '';
+            input.style.display = 'none';
+            button.style.display = 'block';
         }
     },
-    "click .stack": function(event) {
-        $(".stack.selected").each(function() {
-            $(this).removeClass("selected")
+    "click .taskRowAddInput": function(event) {
+        var input = document.getElementById('taskRowAddInput_' + event.currentTarget.id);
+        var button = document.getElementById('taskRowAddInputButton_' + event.currentTarget.id);
+
+        input.style.display = 'inline';
+        button.style.display = 'none';
+        input.focus();
+    },
+    "click .taskRowRemove": function(event) {
+        var taskId = event.target.parentElement.id;
+        console.log(taskId);
+        Task.remove({
+            _id: taskId
         });
-        $(event.currentTarget).addClass("selected");
-        Session.set("selectedID", this._id);
-    },
-    "click .addTask": function(event) {
-        if (Session.get("selectedID") !== NULL) {
-            Stack.update(selected, {
-                $push: {
-                    tasks: "hi"
-                }
-            });
-        }
     }
 });

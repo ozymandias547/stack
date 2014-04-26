@@ -13,6 +13,23 @@ body {
     background-color: white;
 }
 
+.upper-right {
+    position: absolute;
+    top:0.0em;
+    right:0.5em; 
+}
+
+.right {
+    position: absolute;
+    right:0.5em; 
+    top:0.25em;
+}
+
+.text-align-right {
+    padding-right:1em;
+    text-align: right;
+}
+
 .container-fluid {
     height: 1500px;
     width:500px;
@@ -21,68 +38,60 @@ body {
 .stackTitle {
     font-size: 18px;
     font-weight: bold;
-    color: #FFCE63;
-}
-
-.upper-right {
-    position: absolute;
-    top:0.0em;
-    right:0.5em; 
-}
-.text-align-right {
-    text-align: right;
+    color: #B28522;
+    margin-left: 0.25em;
 }
 
 .stackRow {
+    cursor: default;
     border-style: solid;
-    border-color: #FFCE63;
+    border-color: #B28522;
     border-width: 1px;
-    margin: 1em;
+    margin-top: 1em;
     padding:0.25em;
     position:relative;
 }
 
 .stackRowAdd {
+    cursor: pointer;
     border-style: solid;
     border-color: #FFCE63;
+    background-color: #FFCE63;
+    border-width: 1px;
+    position:relative;
+}
+
+.taskTitle {
+    font-size: 12px;
+    font-weight: bold;
+    color: #345FB2;
+}
+
+.taskTitleAdd, .taskTitleAdd a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.taskRow {
+    cursor: default;
+    border-style: solid;
+    border-color: #345FB2;
     border-width: 1px;
     margin: 1em;
     padding:0.25em;
     position:relative;
 }
 
-.addStack {
-    line-height: 10px;
-    font-size: 12px;
-    text-align: center;
-    right:0;
-    top:0;
-    width:2em;
-    position:absolute;
-    background-color: #eee;
-}
-
-.addTask {
-    line-height: 10px;
-    font-size: 12px;
-    text-align: center;
-    right:0;
-    top:0;
-    width:2em;
-    position:absolute;
-    background-color: #eee;
-}
-.addTask:hover {
-    background-color: rgba(0, 100, 0, .5);
-    color: white;
+.taskRowAdd {
     cursor: pointer;
-}
-
-#login-buttons {
-    padding: 0.25em;
-    position:absolute;
-    right: 0;
-    top:0;
+    border-style: solid;
+    border-color: #7DAAFF;
+    background-color: #7DAAFF;
+    border-width: 1px;
+    margin: 1em;
+    padding:0.25em;
+    position:relative;
 }
 
 .stickyFooter {
@@ -97,32 +106,6 @@ body {
 .footerCenter {
     display: inline-block;
     height: 100%;
-}
-
-#stack2, 
-#stack3 {
-    display: none;
-}
-
-.changeStack {
-    line-height: 60px;
-    color: white;
-    position: absolute;
-    font-size: 16px;
-}
-.changeStack:hover {
-    cursor: pointer;
-    color: #aaa;
-}
-
-.previousStack {
-    left: 0px;
-    margin-left: 5%;
-}
-
-.nextStack {
-    right: 0px;
-    margin-right: 5%;
 }
 
 @media (min-width: 992px) {
