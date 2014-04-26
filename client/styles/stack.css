@@ -1,26 +1,75 @@
+/*
+Light blue: 7DAAFF
+Mid blue: 6399FF
+Dark blue: 345FB2
+Gold: FFCE63
+Dark Gold: B28522
+*/
+
 body {
     margin: 0px;
     padding: 0px;
     font-family: arial;
-    background-color: #efefef;
+    background-color: white;
 }
 
 .container-fluid {
-    background-color: white;
     height: 1500px;
+    width:500px;
 }
 
 .stackTitle {
-    height: 60px;
-    line-height: 60px;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFCE63;
+}
+
+.upper-right {
+    position: absolute;
+    top:0.0em;
+    right:0.5em; 
+}
+.text-align-right {
+    text-align: right;
+}
+
+.stackRow {
+    border-style: solid;
+    border-color: #FFCE63;
+    border-width: 1px;
+    margin: 1em;
+    padding:0.25em;
+    position:relative;
+}
+
+.stackRowAdd {
+    border-style: solid;
+    border-color: #FFCE63;
+    border-width: 1px;
+    margin: 1em;
+    padding:0.25em;
+    position:relative;
+}
+
+.addStack {
+    line-height: 10px;
+    font-size: 12px;
     text-align: center;
+    right:0;
+    top:0;
+    width:2em;
+    position:absolute;
+    background-color: #eee;
 }
 
 .addTask {
-    line-height: 60px;
-    font-size: 26px;
+    line-height: 10px;
+    font-size: 12px;
     text-align: center;
+    right:0;
+    top:0;
+    width:2em;
+    position:absolute;
     background-color: #eee;
 }
 .addTask:hover {

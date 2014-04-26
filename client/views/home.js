@@ -21,13 +21,28 @@ Template.home.helpers({
 });
 
 Template.home.events({
-    "keydown .addStack": function(event) {
-        if (event.keyCode == 13 && event.target.value !== "") {
+    "keydown .stackRowAddInput": function(event) {
+        var input = document.getElementById('stackRowAddInput');
+        if (event.keyCode == 13) {
             Stack.insert({
-                name: event.target.value
+                userId: Meteor.userId(),
+                name: input.value
             });
-            event.target.value = "";
+            input.value = '';
+            input.style.display = 'none';
         }
+    },
+    "click .stackRowAddInput": function(event) {
+        var input = document.getElementById('stackRowAddInput');
+        input.style.display = 'inline';
+        input.focus();
+    },
+    "click .stackRowRemove": function(event) {
+        var stackId = event.target.id;
+        console.log(stackId);
+        Stack.remove({
+            _id: stackId
+        });
     },
     "click .deleteStack": function(event) {
         if (confirm("Are you sure?")) {

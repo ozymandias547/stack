@@ -1,26 +1,22 @@
 <template name='home'>
     <div class="container-fluid">
-        <div class="row">
-            Stacks!
-            {{#each stacks}}
-				<div class="col-md-4" id="stack1">
+        
+        {{#each stacks}}
+			<div class="stackRow">
                 <div class="stackTitle">{{name}}</div>
-                {{#each tasks}}
-                	<div class="task">{{this}}</div>
-                {{/each}}
-                <div class="task addTask">+</div>
+                <div class="stackTitle text-align-right upper-right stackRowRemove"><a href="" id="{{_id}}">-</a></div>
            	 </div>
-			{{/each}}
+		{{/each}}
+        
+        <div class="stackRowAdd stackRowAddInput">
+            <input id='stackRowAddInput' style='display:none;'/>
+            <div class="stackTitle text-align-right"><a href="">+</a></div>
         </div>
     </div>
     <div class="stickyFooter">
-        <div class="previousStack changeStack">previous</div>
-        <div class="nextStack changeStack">next</div>
         <div class="footerCenter">
             <input type="text" class="form-control" placeholder="Text input">
             <button>search</button>
-            <button>logout</button>
-            <button>new stack</button>
         </div>
     </div>
 </template>
