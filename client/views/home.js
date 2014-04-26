@@ -3,7 +3,9 @@ document.title = "Stack Home";
 
 var NULL = "null";
 
-Meteor.subscribe("stack");
+Deps.autorun(function() {
+    Meteor.subscribe("stacks", Meteor.userId());
+});
 
 Session.set("selectedID", NULL);
 

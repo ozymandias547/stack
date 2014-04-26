@@ -12,7 +12,6 @@ Router.map(function() {
             } else {
                 this.render('home');
             }
-
         }
     });
 });
