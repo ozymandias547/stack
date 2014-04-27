@@ -1,13 +1,13 @@
 Task = new Meteor.Collection('task');
 
 Task.allow({
-    insert: function(userId, stackId, name) {
+    insert: function(userId, stackId, name, priority) {
         return true;
     },
-    remove: function(userId, stackId, name) {
+    remove: function(userId, stackId, name, priority) {
         return true;
     },
-    update: function(userId, stackId, name) {
+    update: function(userId, stackId, name, priority) {
         return true;
     }
 });

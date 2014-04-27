@@ -2,7 +2,7 @@
     <div class="container-fluid">
         
         {{#each stacks}}
-			<div class="stackRow">
+			<div class="stackRow" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
                     <a href="">{{name}} Stack</a>
                 </div>
@@ -10,7 +10,7 @@
                     <a href="" id="{{_id}}">-</a>
                 </div>
                 {{#each tasks _id}}
-                 <div class="taskRow">
+                 <div class="taskRow taskBump" id="{{_id}}">
                     <div class="taskTitle" id="task_{{_id}}">
                         {{name}}
                     </div>

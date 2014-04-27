@@ -6,6 +6,8 @@ Deps.autorun(function() {
     Meteor.subscribe("tasks", Meteor.userId());
 });
 
+var minPriTask, maxPriTask;
+
 Template.home.helpers({
     stacks: function() {
         return Stack.find().fetch();
@@ -13,6 +15,10 @@ Template.home.helpers({
     tasks: function(stack) {
         return Task.find({
             stackId: stack
+        }, {
+            sort: {
+                priority: -1
+            }
         });
     }
 });
@@ -57,7 +63,8 @@ Template.home.events({
                 Task.insert({
                     userId: Meteor.userId(),
                     stackId: id,
-                    name: input.value
+                    name: input.value,
+                    priority: 0
                 });
             }
             input.value = '';
@@ -74,10 +81,26 @@ Template.home.events({
         input.focus();
     },
     "click .taskRowRemove": function(event) {
-        var taskId = event.target.parentElement.id;
+        var taskId = event.currentTarget.id;
         console.log(taskId);
         Task.remove({
             _id: taskId
+        });
+    },
+    "click .taskBump": function(event) {
+        var taskId = event.currentTarget.id;
+        var stackId = event.currentTarget.parentElement.id;
+
+        task = _.max(Task.find({
+            stackId: stackId
+        }).fetch(), function(task) {
+            return task.priority;
+        });
+
+        Task.update(taskId, {
+            $set: {
+                priority: task.priority + 1
+            }
         });
     }
 });

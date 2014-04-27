@@ -9,8 +9,8 @@ Dark Gold: B28522
 body {
     margin: 0px;
     padding: 0px;
-    font-family: arial;
-    background-color: white;
+    font-family: sans-serif;
+    background-color:#FFF9FE;
 }
 
 .upper-right {
@@ -38,10 +38,12 @@ body {
 .stackTitle {
     font-size: 18px;
     font-weight: bold;
-    color: #B28522;
+    color: #B251A9;
     margin-left: 0.25em;
 }
-
+.stackTitle a {
+    color: #B251A9
+}
 .stackRow {
     cursor: default;
     border-style: solid;
@@ -92,6 +94,7 @@ body {
     margin: 1em;
     padding:0.25em;
     position:relative;
+font-size: 10px;
 }
 
 .stickyFooter {
