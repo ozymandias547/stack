@@ -6,5 +6,7 @@
 standard-app-packages
 iron-router
 accounts-google
-accounts-ui-bootstrap-3
 bootstrap-3
+accounts-ui-unstyled
+accounts-ui
+accounts-facebook
