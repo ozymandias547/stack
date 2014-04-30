@@ -33,8 +33,24 @@ Meteor.publish('stacks', function(userId) {
 });
 
 Meteor.publish('tasks', function(userId) {
+    console.log("TASSSSKKKS");
+    stackIds = Stack.find({
+        $or: [{
+            userId: userId
+        }, {
+            collaboratorIds: {
+                $all: [userId]
+            }
+        }]
+    }).fetch().map(function(stack) {
+        return stack._id
+    });
+    console.log(stackIds);
+
     return Task.find({
-        userId: userId
+        stackId: {
+            $in: stackIds
+        }
     });
 });
 
