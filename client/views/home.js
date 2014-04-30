@@ -37,6 +37,9 @@ Template.home.helpers({
 });
 
 Template.home.events({
+    "click .logout": function(event) {
+        Meteor.logout();
+    },
     "keydown .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
         var button = document.getElementById('stackRowAddInputButton');
