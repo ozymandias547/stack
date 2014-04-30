@@ -39,8 +39,7 @@ body {
 }
 
 .container-fluid {
-    height: 1500px;
-    width:500px;
+    max-width:500px;
 }
 
 .stackTitle {
