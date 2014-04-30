@@ -48,9 +48,11 @@ body {
     color: #B251A9;
     margin-left: 0.25em;
 }
+
 .stackTitle a {
     color: #B251A9
 }
+
 .stackRow {
     cursor: default;
     border-style: solid;
@@ -59,16 +61,6 @@ body {
     margin-top: 1em;
     padding:0.25em;
     position:relative;
-}
-
-.stackRowAdd {
-    cursor: pointer;
-    border-style: solid;
-    border-color: #FFCE63;
-    background-color: #FFCE63;
-    border-width: 1px;
-    position:relative;
-    margin-top: 5px;
 }
 
 .taskTitle {
