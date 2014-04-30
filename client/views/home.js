@@ -42,9 +42,9 @@ Template.home.helpers({
     stacks: function() {
         return Stack.find().fetch();
     },
-    tasks: function(stack) {
+    tasks: function() {
         return Task.find({
-            stackId: stack
+            stackId: this._id
         }, {
             sort: {
                 priority: -1
@@ -82,6 +82,11 @@ Template.home.events({
             button.style.display = 'block';
         }
     },
+    "click .taskRowRemove": function() {
+        Task.remove({
+            _id: this._id
+        });
+    },
     "click .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
         var button = document.getElementById('stackRowAddInputButton');
@@ -98,13 +103,6 @@ Template.home.events({
         });
     },
 
-    "click .taskRowRemove": function(event) {
-        var taskId = event.currentTarget.id;
-        console.log(taskId);
-        Task.remove({
-            _id: taskId
-        });
-    },
     "click .taskBump": function(event) {
         var taskId = event.currentTarget.id;
         var stackId = event.currentTarget.parentElement.id;
@@ -122,3 +120,11 @@ Template.home.events({
         });
     }
 });
+
+// Template.taskView.events({
+//     "click .taskRowRemove": function() {
+//         Task.remove({
+//             _id: this._id
+//         });
+//     },
+// })

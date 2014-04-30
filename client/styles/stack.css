@@ -68,6 +68,7 @@ body {
     background-color: #FFCE63;
     border-width: 1px;
     position:relative;
+    margin-top: 5px;
 }
 
 .taskTitle {
