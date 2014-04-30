@@ -22,13 +22,13 @@ Meteor.publish('stacks', function(userId) {
     }
 
     return Stack.find({
-        userId: userId
+        // userId: userId
     });
 });
 
 Meteor.publish('tasks', function(userId) {
     return Task.find({
-        userId: userId
+        // userId: userId
     });
 });
 
