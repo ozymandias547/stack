@@ -2,10 +2,9 @@
     <div class="container-fluid">
         
         <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42">
-        {{#each fbFriends}}
-            <div>{{name}}</div>div>
-        {{/each}}
+        
 
+        <button type="button" class="btn btn-link logout">logout</button>
         {{#each stacks}}
 			<div class="stackRow" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
@@ -14,7 +13,7 @@
                 <div class="stackTitle text-align-right upper-right stackRowRemove">
                     <a href="" id="{{_id}}">-</a>
                 </div>
-                {{#each tasks _id}}
+                 {{#each tasks}}
                  <div class="taskRow taskBump" id="{{_id}}">
                     <div class="taskTitle" id="task_{{_id}}">
                         {{name}}
@@ -24,17 +23,19 @@
                     </div>
                  </div>
                  {{/each}}
-                 <div class="stackButtons" id="{{_id}}">
-                    <input id='stackAddTaskInput_{{_id}}' style='display:none;'/>
-                    <div class="stackAddTask" id="stackAddTaskButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} Task</a></div>
-                    <div class="stackShare" id="stackShareButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} User</a></div>
-                </div>
+                 {{ >addTask}}
            	</div>
 		{{/each}}
         
         <div class="stackRowAdd stackRowAddInput">
             <input id='stackRowAddInput' style='display:none;'/>
             <div class="stackTitle text-align-right" id="stackRowAddInputButton"><a href="">+ Stack</a></div>
+        </div>
+
+        <div class="friends">
+            {{#each fbFriends}}
+                <div>{{name}}</div>
+            {{/each}}
         </div>
     </div>
 </template>

@@ -10,6 +10,9 @@ Deps.autorun(function() {
     });
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
+        Meteor.call('getFacebookFriends', Meteor.userId(), function(e, r) {
+            Session.set('fbFriends', r.data);
+        });
     });
 });
 
@@ -17,7 +20,7 @@ var minPriTask, maxPriTask;
 
 Template.home.helpers({
     fbFriends: function() {
-        return
+        return Session.get('fbFriends');
     },
     user_image: function() {
         var user = Session.get("userData");
@@ -47,6 +50,9 @@ Template.home.helpers({
                 priority: -1
             }
         });
+    },
+    randomId: function() {
+        return Random.id();
     }
 });
 
@@ -57,6 +63,9 @@ Template.home.events({
             console.log('e', e);
             console.log('r', r);
         });
+    },
+    "click .logout": function(event) {
+        Meteor.logout();
     },
     "keydown .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
@@ -88,32 +97,7 @@ Template.home.events({
             _id: stackId
         });
     },
-    "keydown .stackAddTaskInput": function(event) {
-        var id = event.target.parentElement.id;
-        var input = document.getElementById('stackAddTask_' + id);
-        var button = document.getElementById('stackAddTaskButton_' + id);
-        if (event.keyCode == 13) {
-            if (input.value != '') {
-                Task.insert({
-                    userId: Meteor.userId(),
-                    stackId: id,
-                    name: input.value,
-                    priority: 0
-                });
-            }
-            input.value = '';
-            input.style.display = 'none';
-            button.style.display = 'block';
-        }
-    },
-    "click .stackAddTask": function(event) {
-        var input = document.getElementById('stackAddTask_' + event.currentTarget.id);
-        var button = document.getElementById('stackAddTaskButton_' + event.currentTarget.id);
 
-        input.style.display = 'inline';
-        button.style.display = 'none';
-        input.focus();
-    },
     "click .taskRowRemove": function(event) {
         var taskId = event.currentTarget.id;
         console.log(taskId);
