@@ -1,5 +1,5 @@
 // This might not be needed.
 
-Meteor.startup(function () {
-// code to run on server at startup
+Meteor.startup(function() {
+    Future = Npm.require('fibers/future');
 });

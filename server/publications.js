@@ -32,6 +32,16 @@ Meteor.publish('tasks', function(userId) {
     });
 });
 
+Meteor.publish("fbFriends", function(userId) {
+    console.log("FB FRIENDS!");
+    var future = new Future();
+    Meteor.call('getFacebookFriends', userId, function(e, r) {
+        console.log(e);
+        future['return'](r);
+    });
+    return future.wait();
+});
+
 Meteor.publish("userData", function() {
     console.log("-----PUBLISH USER DATA-----");
     console.log(this.userId);

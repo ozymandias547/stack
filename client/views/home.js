@@ -4,6 +4,10 @@ document.title = "Stack Home";
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
     Meteor.subscribe("tasks", Meteor.userId());
+    Meteor.subscribe("fbFriends", Meteor.userId(), function(r) {
+        console.log('------FB Friends------', r);
+        Session.set("fbFriends", r);
+    });
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
     });
@@ -12,10 +16,20 @@ Deps.autorun(function() {
 var minPriTask, maxPriTask;
 
 Template.home.helpers({
+    fbFriends: function() {
+        return
+    },
     user_image: function() {
         var user = Session.get("userData");
         if (user && user.services.facebook) {
             return "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+        }
+        return "";
+    },
+    user_id: function() {
+        var user = Session.get("userData");
+        if (user && user.services.facebook) {
+            return user.services.facebook.id;
         }
         return "";
     },
@@ -37,6 +51,13 @@ Template.home.helpers({
 });
 
 Template.home.events({
+    "click #btnGetFriendlists": function(event) {
+        console.log("CLICK");
+        Meteor.call('getFriendLists', null, function(e, r) {
+            console.log('e', e);
+            console.log('r', r);
+        });
+    },
     "keydown .stackRowAddInput": function(event) {
         var input = document.getElementById('stackRowAddInput');
         var button = document.getElementById('stackRowAddInputButton');

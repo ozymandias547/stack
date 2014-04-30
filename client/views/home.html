@@ -2,6 +2,10 @@
     <div class="container-fluid">
         
         <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42">
+        {{#each fbFriends}}
+            <div>{{name}}</div>div>
+        {{/each}}
+
         {{#each stacks}}
 			<div class="stackRow" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
