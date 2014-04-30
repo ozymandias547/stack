@@ -90,22 +90,20 @@ body {
     top:0.25em;
 }
 
-.stackAddTask a {
+
+.stackButtons .AddTask a,
+.stackButtons .stackShare a {
     font-size: 12px;
+    line-height: 34px;
     font-weight: bold;
     color: #FFFFFF;
+    margin: 0 15px;
 }
 
-.stackShare a {
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-.stackShare {
+.stackButtons .stackShare {
     position:absolute;
-    right:1em;
-    top:0.25em;
+    right:0;
+    top: 0;
 }
 
 .taskRow {

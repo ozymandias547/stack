@@ -11,7 +11,7 @@
                 <div class="stackTitle text-align-right upper-right stackRowRemove">
                     <a href="" id="{{_id}}">-</a>
                 </div>
-                {{#each tasks _id}}
+                 {{#each tasks}}
                  <div class="taskRow taskBump" id="{{_id}}">
                     <div class="taskTitle" id="task_{{_id}}">
                         {{name}}
@@ -21,11 +21,7 @@
                     </div>
                  </div>
                  {{/each}}
-                 <div class="stackButtons" id="{{_id}}">
-                    <input id='stackAddTaskInput_{{_id}}' style='display:none;'/>
-                    <div class="stackAddTask" id="stackAddTaskButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} Task</a></div>
-                    <div class="stackShare" id="stackShareButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} User</a></div>
-                </div>
+                 {{ >addTask}}
            	</div>
 		{{/each}}
         
