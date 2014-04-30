@@ -7,8 +7,9 @@ Install and Run
 ===============
 
 1. [Install NVM](https://github.com/creationix/nvm)
-2. Install Node.js 0.10.26
-3. [Install Meteoriate](https://www.npmjs.org/package/meteorite)
-4. export MONGO_URL=export MONGO_URL=mongodb://50.56.122.53:27017/omystack
-5. `clone https://github.com/ozymandias547/stack`
-6. `mrt`
+2. `nvm install 0.10.26`
+3. `nvm use 0.10.26`
+4. [Install Meteoriate](https://www.npmjs.org/package/meteorite)
+5. `export MONGO_URL=export MONGO_URL=mongodb://50.56.122.53:27017/omystack`
+6. `clone https://github.com/ozymandias547/stack`
+7. `mrt`
