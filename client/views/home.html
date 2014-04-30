@@ -6,29 +6,37 @@
 
         <button type="button" class="btn btn-link logout">logout</button>
         {{#each stacks}}
-			<div class="stackRow" id="{{_id}}">
+			<div class="Stack" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
-                    <a href="">{{name}} Stack</a>
+                    <a href="">{{name}}</a>
                 </div>
-                <div>{{description}}</div>
-                <div class="stackTitle text-align-right upper-right stackRowRemove">
-                    <a href="" id="{{_id}}">-</a>
+                <div class="StackShare"><a href="" class="glyphicon glyphicon-user"></a></div>
+                <div class="StackRemove">
+                    <a href="" id="{{_id}}" class="glyphicon glyphicon-minus"></a>
                 </div>
+
+                <div class="StackShareInput right hidden">
+                    <input placeholder="Add contributor..." 
+                        autocomplete="on" spellcheck="off"
+                        data-source="contributors" />
+                </div>
+                <div class="StackDescription">{{description}}</div>
+                
                  {{#each tasks}}
-                     <div class="taskRow taskBump">
+                     <div class="Task taskBump">
                         <div class="taskTitle">
                             {{name}}
                         </div>
                         <div class="taskTitle text-align-right right taskRowRemove">
-                            <a href="">Finish!</a>
+                            <a href="" class="glyphicon glyphicon-ok-circle"></a>
                         </div>
                      </div>
                  {{/each}}
 
-                 {{ >addTask}}
+                 {{ >TaskAddTpl}}
            	</div>
 		{{/each}}
         
-        {{ >addStack}}
+        {{ >StackAddTpl}}
     </div>
 </template>

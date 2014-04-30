@@ -5,7 +5,8 @@
       "iron-router": {},
       "accounts-ui-bootstrap-3": {},
       "bootstrap-3": {},
-      "typeahead": {}
+      "typeahead": {},
+      "bootstrap3-less": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
         "tag": "v0.0.8",
         "commit": "3e83afe7bd3ba47a801cb7fec2bff4678aefd5dc"
+      },
+      "bootstrap3-less": {
+        "git": "https://github.com/eprochasson/bootstrap3-less",
+        "tag": "v0.1.9",
+        "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

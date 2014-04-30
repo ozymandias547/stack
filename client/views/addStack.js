@@ -1,5 +1,5 @@
-Template.addStack.events({
-    "click .AddStackRow": function(event, template) {
+Template.StackAddTpl.events({
+    "click .StackAdd": function(event, template) {
         var $addStackInputs = $(template.find(".AddStackInputs"));
         var $addStackNameInput = $(template.find("#AddStackNameInput"));
         var $addStackButton = $(template.find(".AddStackButton"));

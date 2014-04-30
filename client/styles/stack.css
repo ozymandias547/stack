@@ -1,66 +1,44 @@
-/*
-Light blue: 7DAAFF
-Mid blue: 6399FF
-Dark blue: 345FB2
-Gold: FFCE63
-Dark Gold: B28522
-*/
- body {
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-    background-color:#FFF9FE;
-}
-.login-container {
-    max-width: 500px;
-    margin-left: 5%;
-    margin-right: 5%;
-    top:0px;
-    position:absolute;
-}
-.upper-right {
-    position: absolute;
-    top:0.0em;
-    right:0.5em;
-}
-.right {
-    position: absolute;
-    right:0.5em;
-    top:0.25em;
-}
-.text-align-right {
-    padding-right:1em;
-    text-align: right;
-}
-.container-fluid {
-    max-width:500px;
-}
-.stackTitle {
-    font-size: 18px;
-    font-weight: bold;
-    color: #B251A9;
-    margin-left: 0.25em;
-}
-
-.stackTitle a {
-    color: #B251A9
-}
-
-.stackRowAdd {
-    cursor: pointer;
+.Stack {
     border-style: solid;
     border-color: #FFCE63;
-    background-color: #FFCE63;
     border-width: 1px;
+    padding:0.5em;
     position:relative;
-    margin-top: 5px;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
 }
 
-.taskTitle {
-    font-size: 12px;
-    font-weight: bold;
-    color: #345FB2;
+.StackAdd {
+    cursor: pointer;
+    background-color: #FFCE63;
+    position:relative;
+    padding:0.5em;
 }
+
+.StackShare {
+    position:absolute;
+    right:0.6em;
+    top: 0.6em;
+}
+
+.StackRemove {
+    position:absolute;
+    right:2.5em;
+    top: 0.6em;
+}
+
+.StackShareInput input {
+    margin: 2px;
+    padding-left: 5px;
+    margin-left: 1%;
+}
+
+.stackTitle, .stackTitle a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #B28522;
+}
+
 .stackButtons {
     background-color: #6399FF;
     position: relative;
@@ -86,93 +64,12 @@ Dark Gold: B28522
     color: #FFFFFF;
     margin: 0 15px;
 }
-.stackButtons .stackShare {
-    position:absolute;
-    right:0;
-    top: 0;
-}
-.stackShareInput input {
-    margin: 2px;
-    padding-left: 5px;
-    margin-left: 1%;
-}
-.taskRow {
-    cursor: default;
-    border-style: solid;
-    border-color: #345FB2;
-    border-width: 1px;
-    margin: 1em;
-    padding:0.25em;
-    position:relative;
-}
-.taskRowAdd {
-    cursor: pointer;
-    border-style: solid;
-    border-color: #7DAAFF;
-    background-color: #7DAAFF;
-    border-width: 1px;
-    margin: 1em;
-    padding:0.25em;
-    position:relative;
-    font-size: 10px;
-}
-.stickyFooter {
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #efefef;
-}
-.footerCenter {
-    display: inline-block;
-    height: 100%;
-}
-@media (min-width: 992px) {
-    #stack2, #stack3 {
-        display: block;
-    }
-}
-.friends {
-    position: absolute;
-    right: 0em;
-    top: 0em;
-    text-align: right;
-    bottom:0em;
-}
 
-.tt-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 160px;
-    padding: 5px 0;
-    margin: 2px 0 0;
-    list-style: none;
-    font-size: 14px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    background-clip: padding-box;
-}
-.tt-suggestion > p {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: normal;
-    line-height: 1.428571429;
-    color: #333333;
-    white-space: nowrap;
-}
-.tt-suggestion > p:hover, .tt-suggestion > p:focus, .tt-suggestion.tt-cursor p {
-    color: #ffffff;
-    text-decoration: none;
-    outline: 0;
-    background-color: #428bca;
+
+
+.AddStackInputs {
+  padding: 0.5em;
+  position:relative;
+  margin-right:4em;
+  margin-left:4em;
 }
