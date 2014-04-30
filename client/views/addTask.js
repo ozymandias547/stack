@@ -16,22 +16,23 @@ Template.addTask.events({
         
         var $addTaskButton = $(template.find(".AddTask"));
         var $addTaskInput = $(template.find(".AddTaskInput"));
-        
+
         if (event.keyCode == 13) {
             if ($addTaskInput.val() != '') {
                 
                 Task.insert({
                     userId: Meteor.userId(),
                     stackId: this._id,
-                    name: $addTaskInput.value,
+                    name: $addTaskInput.val(),
                     priority: 0
                 });
             }
             $addTaskInput.val("");
-            
             $addTaskButton.removeClass("hidden");
-            $addTaskInput.addClass("hidden");
+            $addTaskInput.addClass("hidden");   
         }
+
     }
 
 })
+

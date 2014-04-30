@@ -14,15 +14,16 @@
                     <a href="" id="{{_id}}">-</a>
                 </div>
                  {{#each tasks}}
-                 <div class="taskRow taskBump" id="{{_id}}">
-                    <div class="taskTitle" id="task_{{_id}}">
-                        {{name}}
-                    </div>
-                    <div class="taskTitle text-align-right right taskRowRemove" id="{{_id}}">
-                        <a href="">Finish!</a>
-                    </div>
-                 </div>
+                     <div class="taskRow taskBump">
+                        <div class="taskTitle">
+                            {{name}}
+                        </div>
+                        <div class="taskTitle text-align-right right taskRowRemove">
+                            <a href="">Finish!</a>
+                        </div>
+                     </div>
                  {{/each}}
+
                  {{ >addTask}}
            	</div>
 		{{/each}}
