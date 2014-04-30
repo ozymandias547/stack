@@ -10,14 +10,19 @@ Deps.autorun(function() {
     });
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
+
         Meteor.call('getFacebookFriends', {
             userId: Meteor.userId(),
             onmystackUser: true
         }, function(e, r) {
             console.log(r);
-            Session.set('fbFriends', r.sort(function(a, b) {
+
+            r.all.sort(function(a, b) {
                 return a.name < b.name ? -1 : 1;
-            }));
+            });
+
+            Session.set('fbFriendsAll', r.all);
+            Session.set('fbFriendsByName', r.byName);
         });
     });
 });
@@ -26,7 +31,7 @@ var minPriTask, maxPriTask;
 
 Template.home.helpers({
     fbFriends: function() {
-        return Session.get('fbFriends');
+        return Session.get('fbFriendsAll');
     },
     user_image: function() {
         var user = Session.get("userData");
@@ -64,7 +69,6 @@ Template.home.helpers({
 
 Template.home.events({
     "click #btnGetFriendlists": function(event) {
-        console.log("CLICK");
         Meteor.call('getFriendLists', null, function(e, r) {
             console.log('e', e);
             console.log('r', r);

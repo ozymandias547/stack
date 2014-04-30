@@ -20,12 +20,20 @@ Meteor.methods({
 
             //Async Meteor (help from : https://gist.github.com/possibilities/3443021
             graph.get('/' + user.services.facebook.id + '/friends', null, function(err, result) {
-                var res = [];
+                var res = {
+                    all: [],
+                    byName: {}
+                };
                 for (var i = 0; i < result.data.length; i++) {
                     var friend = result.data[i];
                     if (usersByName[friend.name]) {
+
+                        friend.userId = usersByName[friend.name]._id;
+
                         console.log("FOUND", friend);
-                        res.push(friend);
+
+                        res.all.push(friend);
+                        res.byName[friend.name] = friend;
                     }
                 }
                 future['return'](res);

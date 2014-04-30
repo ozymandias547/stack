@@ -1,15 +1,7 @@
-
-
 Template.addTask.contributors = function() {
-
-    var friends = Session.get('fbFriends');
-    var friendNames = [];
-
-    for (var friend in friends) {
-        friendNames.push(friends[friend].name)
-    }
-
-    return friendNames;
+    return Session.get('fbFriendsAll').map(function(friend) {
+        return friend.name;
+    });
 };
 
 Template.addTask.events({
@@ -48,43 +40,43 @@ Template.addTask.events({
     },
 
     "click .stackShare": function(event, template) {
-
-
         var $stackShareButton = $(template.find(".stackShare")),
             $stackShareInputContainer = $(template.find(".stackShareInput")),
             $stackShareInput = $stackShareInputContainer.find("input");
 
         $stackShareButton.addClass("hidden");
         $stackShareInputContainer.removeClass("hidden");
-        
+
         Meteor.typeahead($stackShareInput);
 
         $stackShareInputContainer.find(".tt-input").focus();
-
-
     },
 
     "keydown .stackShareInput": function(event, template) {
-        
         var $stackShareButton = $(template.find(".stackShare")),
             $stackShareInputContainer = $(template.find(".stackShareInput")),
             $stackShareInput = $stackShareInputContainer.find(".tt-input");
 
-
         if (event.keyCode == 13) {
             if ($stackShareInput.val() != '') {
-                
+
+                var friendsByName = Session.get("fbFriendsByName");
+                var friend = friendsByName[$stackShareInput.val()];
+
+                console.log(friend);
+
                 Stack.update({
                     _id: this._id,
-                    },
-                    { $push {collaboratorIds : Meteor.userId() }}
-                );
+                }, {
+                    $push: {
+                        collaboratorIds: friend.userId
+                    }
+                });
             }
 
-            console.log( $stackShareInput.val() );
             $stackShareInput.val("");
             $stackShareButton.removeClass("hidden");
-            $stackShareInput.addClass("hidden");   
+            $stackShareInput.addClass("hidden");
         }
 
     },

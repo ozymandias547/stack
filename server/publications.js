@@ -22,7 +22,13 @@ Meteor.publish('stacks', function(userId) {
     }
 
     return Stack.find({
-        userId: userId
+        $or: [{
+            userId: userId
+        }, {
+            collaboratorIds: {
+                $all: [userId]
+            }
+        }]
     });
 });
 
