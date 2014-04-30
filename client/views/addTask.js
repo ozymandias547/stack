@@ -51,15 +51,17 @@ Template.addTask.events({
     "click .stackShare": function(event, template) {
 
 
-        var $stackShareButton = $(template.find(".stackShare"));
-        var $stackShareInput = $(template.find(".stackShareInput"));
+        var $stackShareButton = $(template.find(".stackShare")),
+            $stackShareInputContainer = $(template.find(".stackShareInput")),
+            $stackShareInput = $stackShareInputContainer.find("input");
 
         $stackShareButton.addClass("hidden");
-        $stackShareInput.removeClass("hidden");
+        $stackShareInputContainer.removeClass("hidden");
         
-        $stackShareInput.focus();
-
         Meteor.typeahead($stackShareInput);
+
+        $stackShareInputContainer.find(".tt-input").focus();
+
 
     },
 
