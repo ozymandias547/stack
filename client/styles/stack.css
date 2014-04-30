@@ -152,3 +152,11 @@ font-size: 10px;
         display: block;
     }
 }
+
+.friends {
+    position: absolute;
+    right: 0em;
+    top: 0em;
+    text-align: right;
+    bottom:0em;
+}

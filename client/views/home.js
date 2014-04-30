@@ -11,7 +11,7 @@ Deps.autorun(function() {
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
         Meteor.call('getFacebookFriends', Meteor.userId(), function(e, r) {
-            Session.set('fbFriends', r.data);
+            Session.set('fbFriends', r.data.sort('name'));
         });
     });
 });
