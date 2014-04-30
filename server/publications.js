@@ -33,11 +33,11 @@ Meteor.publish('tasks', function(userId) {
 });
 
 Meteor.publish("userData", function() {
-    if (this.userId) {
+    console.log("-----PUBLISH USER DATA-----");
+    console.log(this.userId);
+    if (this.userId)
         return Meteor.users.find({
             _id: this.userId
         });
-    } else {
-        this.ready();
-    }
+    this.ready();
 });

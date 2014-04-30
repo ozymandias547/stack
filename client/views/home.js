@@ -4,16 +4,18 @@ document.title = "Stack Home";
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
     Meteor.subscribe("tasks", Meteor.userId());
-    Meteor.subscribe("userData");
+    Meteor.subscribe("userData", null, function() {
+        Session.set("userData", Meteor.user());
+    });
 });
 
 var minPriTask, maxPriTask;
 
 Template.home.helpers({
     user_image: function() {
-        console.log(Meteor.user());
-        if (Meteor.user().services.facebook) {
-            return "http://graph.facebook.com/" + Meteor.user().services.facebook.id + "/picture/?type=large";
+        var user = Session.get("userData");
+        if (user && user.services.facebook) {
+            return "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
         }
         return "";
     },
