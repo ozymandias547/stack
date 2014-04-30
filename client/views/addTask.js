@@ -66,19 +66,22 @@ Template.addTask.events({
 
     "keydown .stackShareInput": function(event, template) {
         
-        var $stackShareButton = $(template.find(".stackShare"));
-        var $stackShareInput = $(template.find(".stackShareInput"));
+        var $stackShareButton = $(template.find(".stackShare")),
+            $stackShareInputContainer = $(template.find(".stackShareInput")),
+            $stackShareInput = $stackShareInputContainer.find(".tt-input");
+
 
         if (event.keyCode == 13) {
             if ($stackShareInput.val() != '') {
                 
-                // Task.insert({
-                //     userId: Meteor.userId(),
-                //     stackId: this._id,
-                //     name: $stackShareInput.val(),
-                //     priority: 0
-                // });
+                Stack.update({
+                    _id: this._id,
+                    },
+                    { $push {collaboratorIds : Meteor.userId() }}
+                );
             }
+
+            console.log( $stackShareInput.val() );
             $stackShareInput.val("");
             $stackShareButton.removeClass("hidden");
             $stackShareInput.addClass("hidden");   
