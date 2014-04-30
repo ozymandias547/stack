@@ -1,3 +1,17 @@
+
+
+Template.addTask.contributors = function() {
+
+    var friends = Session.get('fbFriends');
+    var friendNames = [];
+
+    for (var friend in friends) {
+        friendNames.push(friends[friend].name)
+    }
+
+    return friendNames;
+};
+
 Template.addTask.events({
     
     "click .AddTask": function(event, template) {
@@ -32,7 +46,44 @@ Template.addTask.events({
             $addTaskInput.addClass("hidden");   
         }
 
-    }
+    },
+
+    "click .stackShare": function(event, template) {
+
+
+        var $stackShareButton = $(template.find(".stackShare"));
+        var $stackShareInput = $(template.find(".stackShareInput"));
+
+        $stackShareButton.addClass("hidden");
+        $stackShareInput.removeClass("hidden");
+        
+        $stackShareInput.focus();
+
+        Meteor.typeahead($stackShareInput);
+
+    },
+
+    "keydown .stackShareInput": function(event, template) {
+        
+        var $stackShareButton = $(template.find(".stackShare"));
+        var $stackShareInput = $(template.find(".stackShareInput"));
+
+        if (event.keyCode == 13) {
+            if ($stackShareInput.val() != '') {
+                
+                // Task.insert({
+                //     userId: Meteor.userId(),
+                //     stackId: this._id,
+                //     name: $stackShareInput.val(),
+                //     priority: 0
+                // });
+            }
+            $stackShareInput.val("");
+            $stackShareButton.removeClass("hidden");
+            $stackShareInput.addClass("hidden");   
+        }
+
+    },
 
 })
 
