@@ -4,11 +4,22 @@ document.title = "Stack Home";
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
     Meteor.subscribe("tasks", Meteor.userId());
+    Meteor.subscribe("userData");
 });
 
 var minPriTask, maxPriTask;
 
 Template.home.helpers({
+    user_image: function() {
+        console.log(Meteor.user());
+        if (Meteor.user().services.facebook) {
+            return "http://graph.facebook.com/" + Meteor.user().services.facebook.id + "/picture/?type=large";
+        }
+        return "";
+    },
+    user_name: function() {
+        return Meteor.user().profile.name;
+    },
     stacks: function() {
         return Stack.find().fetch();
     },
@@ -54,10 +65,10 @@ Template.home.events({
             _id: stackId
         });
     },
-    "keydown .taskRowAddInput": function(event) {
+    "keydown .stackAddTaskInput": function(event) {
         var id = event.target.parentElement.id;
-        var input = document.getElementById('taskRowAddInput_' + id);
-        var button = document.getElementById('taskRowAddInputButton_' + id);
+        var input = document.getElementById('stackAddTask_' + id);
+        var button = document.getElementById('stackAddTaskButton_' + id);
         if (event.keyCode == 13) {
             if (input.value != '') {
                 Task.insert({
@@ -72,9 +83,9 @@ Template.home.events({
             button.style.display = 'block';
         }
     },
-    "click .taskRowAddInput": function(event) {
-        var input = document.getElementById('taskRowAddInput_' + event.currentTarget.id);
-        var button = document.getElementById('taskRowAddInputButton_' + event.currentTarget.id);
+    "click .stackAddTask": function(event) {
+        var input = document.getElementById('stackAddTask_' + event.currentTarget.id);
+        var button = document.getElementById('stackAddTaskButton_' + event.currentTarget.id);
 
         input.style.display = 'inline';
         button.style.display = 'none';

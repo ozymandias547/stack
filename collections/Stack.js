@@ -1,13 +1,13 @@
 Stack = new Meteor.Collection('stack');
 
 Stack.allow({
-    insert: function(userId, name) {
+    insert: function(userId, name, shareUserIds) {
         return true;
     },
-    remove: function(userId, name) {
+    remove: function(userId, name, shareUserIds) {
         return true;
     },
-    update: function(userId, name) {
+    update: function(userId, name, shareUserIds) {
         return true;
     }
 });

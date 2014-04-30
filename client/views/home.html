@@ -1,6 +1,7 @@
 <template name='home'>
     <div class="container-fluid">
         
+        <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42">
         {{#each stacks}}
 			<div class="stackRow" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
@@ -19,9 +20,10 @@
                     </div>
                  </div>
                  {{/each}}
-                 <div class="taskRowAdd taskRowAddInput" id="{{_id}}">
-                    <input id='taskRowAddInput_{{_id}}' style='display:none;'/>
-                    <div class="taskTitleAdd" id="taskRowAddInputButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} Task</a></div>
+                 <div class="stackButtons" id="{{_id}}">
+                    <input id='stackAddTaskInput_{{_id}}' style='display:none;'/>
+                    <div class="stackAddTask" id="stackAddTaskButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} Task</a></div>
+                    <div class="stackShare" id="stackShareButton_{{_id}}"><a href="" id="{{_id}}">+ {{name}} User</a></div>
                 </div>
            	</div>
 		{{/each}}

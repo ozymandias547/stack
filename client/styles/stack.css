@@ -13,6 +13,14 @@ body {
     background-color:#FFF9FE;
 }
 
+.login-container {
+    max-width: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
+    top:0px;
+    position:absolute;
+}
+
 .upper-right {
     position: absolute;
     top:0.0em;
@@ -69,10 +77,36 @@ body {
     color: #345FB2;
 }
 
-.taskTitleAdd, .taskTitleAdd a {
+.stackButtons {
+    background-color: #6399FF;
+    position: relative;
+    width: 95%;
+    height:2.5em;
+    margin: 0.25em;
+}
+
+.stackAddTask {
+    position:absolute;
+    left:1em;
+    top:0.25em;
+}
+
+.stackAddTask a {
     font-size: 12px;
     font-weight: bold;
     color: #FFFFFF;
+}
+
+.stackShare a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.stackShare {
+    position:absolute;
+    right:1em;
+    top:0.25em;
 }
 
 .taskRow {

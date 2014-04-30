@@ -8,4 +8,12 @@ Meteor.startup(function() {
         secret: 'AlMkP_BH4SQ2ju4ItpIKba2c'
     });
 
+    Accounts.loginServiceConfiguration.upsert({
+        service: 'facebook'
+    }, {
+        service: 'facebook',
+        appId: '696946783695522',
+        secret: '013263524c094cfb28dbf4da260280b5'
+    });
+
 });
