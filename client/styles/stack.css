@@ -41,18 +41,11 @@ Dark Gold: B28522
     color: #B251A9;
     margin-left: 0.25em;
 }
+
 .stackTitle a {
     color: #B251A9
 }
-.stackRow {
-    cursor: default;
-    border-style: solid;
-    border-color: #B28522;
-    border-width: 1px;
-    margin-top: 1em;
-    padding:0.25em;
-    position:relative;
-}
+
 .stackRowAdd {
     cursor: pointer;
     border-style: solid;
@@ -62,6 +55,7 @@ Dark Gold: B28522
     position:relative;
     margin-top: 5px;
 }
+
 .taskTitle {
     font-size: 12px;
     font-weight: bold;

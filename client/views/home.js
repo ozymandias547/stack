@@ -14,7 +14,8 @@ Deps.autorun(function() {
             userId: Meteor.userId(),
             onmystackUser: true
         }, function(e, r) {
-            Session.set('fbFriends', r.data.sort(function(a, b) {
+            console.log(r);
+            Session.set('fbFriends', r.sort(function(a, b) {
                 return a.name < b.name ? -1 : 1;
             }));
         });
@@ -72,34 +73,13 @@ Template.home.events({
     "click .logout": function(event) {
         Meteor.logout();
     },
-    "keydown .stackRowAddInput": function(event) {
-        var input = document.getElementById('stackRowAddInput');
-        var button = document.getElementById('stackRowAddInputButton');
-        if (event.keyCode == 13) {
-            if (input.value != '') {
-                Stack.insert({
-                    userId: Meteor.userId(),
-                    name: input.value
-                });
-            }
-            input.value = '';
-            input.style.display = 'none';
-            button.style.display = 'block';
-        }
-    },
+
     "click .taskRowRemove": function() {
         Task.remove({
             _id: this._id
         });
     },
-    "click .stackRowAddInput": function(event) {
-        var input = document.getElementById('stackRowAddInput');
-        var button = document.getElementById('stackRowAddInputButton');
 
-        input.style.display = 'inline';
-        button.style.display = 'none';
-        input.focus();
-    },
     "click .stackRowRemove": function(event) {
         var stackId = event.target.id;
         console.log(stackId);
@@ -125,11 +105,3 @@ Template.home.events({
         });
     }
 });
-
-// Template.taskView.events({
-//     "click .taskRowRemove": function() {
-//         Task.remove({
-//             _id: this._id
-//         });
-//     },
-// })

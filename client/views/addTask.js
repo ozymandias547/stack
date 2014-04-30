@@ -13,7 +13,7 @@ Template.addTask.contributors = function() {
 };
 
 Template.addTask.events({
-    
+
     "click .AddTask": function(event, template) {
 
         var $addTaskButton = $(template.find(".AddTask"));
@@ -21,19 +21,18 @@ Template.addTask.events({
 
         $addTaskButton.addClass("hidden");
         $addTaskInput.removeClass("hidden");
-        
+
         $addTaskInput.focus();
-        
     },
 
     "keydown .AddTaskInput": function(event, template) {
-        
+
         var $addTaskButton = $(template.find(".AddTask"));
         var $addTaskInput = $(template.find(".AddTaskInput"));
 
         if (event.keyCode == 13) {
             if ($addTaskInput.val() != '') {
-                
+
                 Task.insert({
                     userId: Meteor.userId(),
                     stackId: this._id,
@@ -43,7 +42,7 @@ Template.addTask.events({
             }
             $addTaskInput.val("");
             $addTaskButton.removeClass("hidden");
-            $addTaskInput.addClass("hidden");   
+            $addTaskInput.addClass("hidden");
         }
 
     },
@@ -88,4 +87,3 @@ Template.addTask.events({
     },
 
 })
-

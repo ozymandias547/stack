@@ -10,6 +10,7 @@
                 <div class="stackTitle" id="{{_id}}">
                     <a href="">{{name}} Stack</a>
                 </div>
+                <div>{{description}}</div>
                 <div class="stackTitle text-align-right upper-right stackRowRemove">
                     <a href="" id="{{_id}}">-</a>
                 </div>
@@ -28,10 +29,7 @@
            	</div>
 		{{/each}}
         
-        <div class="stackRowAdd stackRowAddInput">
-            <input id='stackRowAddInput' placeholder="New Stack..." style='display:none;'/>
-            <div class="stackTitle text-align-right" id="stackRowAddInputButton"><a href="">+ Stack</a></div>
-        </div>
+        {{ >addStack}}
 
         <div class="friends">
             {{#each fbFriends}}
