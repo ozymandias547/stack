@@ -1,11 +1,13 @@
 Meteor.methods({
-    'getFacebookFriends': function(userId) {
+    'getFacebookFriends': function(request) {
         var graph = Npm.require('fbgraph');
         var user = Meteor.users.find({
-            _id: userId
+            _id: request.userId
         }).fetch()[0];
+
         if (user.services.facebook.accessToken) {
             graph.setAccessToken(user.services.facebook.accessToken);
+
             var at = user.services.facebook.accessToken;
             var future = new Future(),
                 onComplete = future.resolver();

@@ -10,8 +10,13 @@ Deps.autorun(function() {
     });
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
-        Meteor.call('getFacebookFriends', Meteor.userId(), function(e, r) {
-            Session.set('fbFriends', r.data.sort('name'));
+        Meteor.call('getFacebookFriends', {
+            userId: Meteor.userId(),
+            onmystackUser: true
+        }, function(e, r) {
+            Session.set('fbFriends', r.data.sort(function(a, b) {
+                return a.name < b.name ? -1 : 1;
+            }));
         });
     });
 });
