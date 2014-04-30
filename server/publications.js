@@ -33,7 +33,6 @@ Meteor.publish('stacks', function(userId) {
 });
 
 Meteor.publish('tasks', function(userId) {
-    console.log("TASSSSKKKS");
     stackIds = Stack.find({
         $or: [{
             userId: userId
@@ -45,7 +44,6 @@ Meteor.publish('tasks', function(userId) {
     }).fetch().map(function(stack) {
         return stack._id
     });
-    console.log(stackIds);
 
     return Task.find({
         stackId: {

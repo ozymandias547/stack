@@ -77,18 +77,14 @@ Template.home.events({
     "click .logout": function(event) {
         Meteor.logout();
     },
-
-    "click .taskRowRemove": function() {
+    "click .TaskRemove": function(event, template) {
         Task.remove({
             _id: this._id
         });
     },
-
-    "click .stackRowRemove": function(event) {
-        var stackId = event.target.id;
-        console.log(stackId);
+    "click .StackRemove": function(event, template) {
         Stack.remove({
-            _id: stackId
+            _id: this._id
         });
     },
 
