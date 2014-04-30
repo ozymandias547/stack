@@ -90,6 +90,10 @@ body {
     top:0.25em;
 }
 
+.stackButtons .AddTaskInput {
+    margin: 4px;
+    padding-left: 5px;
+}
 
 .stackButtons .AddTask a,
 .stackButtons .stackShare a {
