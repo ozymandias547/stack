@@ -12,12 +12,20 @@ Meteor.publish('stacks', function(userId) {
     if (!count) {
         Stack.insert({
             name: "Home",
-            userId: userId
+            userId: userId,
+            collaboratorIds: []
         });
 
         Stack.insert({
             name: "Work",
-            userId: userId
+            userId: userId,
+            collaboratorIds: []
+        });
+
+        Stack.insert({
+            name: "Play",
+            userId: userId,
+            collaboratorIds: []
         });
     }
 

@@ -20,7 +20,8 @@ Template.StackAddTpl.events({
             Stack.insert({
                 userId: Meteor.userId(),
                 name: $addStackNameInput.val(),
-                description: $addStackDescInput.val()
+                description: $addStackDescInput.val(),
+                collaboratorIds: []
             });
         }
 

@@ -7,12 +7,10 @@
         {{#each stacks}}
 			<div class="Stack" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
-                    <a href="">{{name}}</a>
-                    {{#each collaboratorIds}}
-                    {{.._id}}
+                    {{name}}
+                    {{#each collaboratorsMap this}}
                     <a class="fbCollaboratorImg">
-
-                        <img class="fbPhotoMini" src="{{fbImageByUserId this}}"/>
+                        <img class="fbPhotoMini" src="{{fbImageByUserId this.id}}"/>
                     </a>
                     {{/each}}
                 </div>

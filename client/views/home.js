@@ -3,20 +3,16 @@ document.title = "Stack Home";
 
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
+
     Meteor.subscribe("tasks", Meteor.userId());
-    Meteor.subscribe("fbFriends", Meteor.userId(), function(r) {
-        console.log('------FB Friends------', r);
-        Session.set("fbFriends", r);
-    });
+
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
 
         Meteor.call('getFacebookFriends', {
             userId: Meteor.userId(),
-            onmystackUser: true
+            all: true
         }, function(e, r) {
-            console.log(r);
-
             r.all.sort(function(a, b) {
                 return a.name < b.name ? -1 : 1;
             });
@@ -31,6 +27,15 @@ Deps.autorun(function() {
 var minPriTask, maxPriTask;
 
 Template.home.helpers({
+    collaboratorsMap: function(stack) {
+        var mark = Session.get("updateCollaboratorsMark");
+        return stack.collaboratorIds ? stack.collaboratorIds.map(function(id) {
+            return {
+                stack: stack,
+                id: id
+            };
+        }) : [];
+    },
     fbFriends: function() {
         return Session.get('fbFriendsAll');
     },
@@ -67,15 +72,11 @@ Template.home.helpers({
         return Random.id();
     },
     fbImageByUserId: function(id) {
+        var mark = Session.get("updateCollaboratorsMark");
         if (Session.get("fbFriendsById")) {
-            console.log("getting fb image for: " + id);
-            console.log(Session.get("fbFriendsById"));
             var friend = Session.get("fbFriendsById")[id];
-            console.log(friend);
-            if (friend) {
+            if (friend)
                 return 'http://graph.facebook.com/' + friend.id + '/picture/?type=small';
-            }
-            return "";
         }
         return "";
     }
@@ -144,7 +145,7 @@ Template.home.events({
                 var friendsByName = Session.get("fbFriendsByName");
                 var friend = friendsByName[$stackShareInput.val()];
 
-                if (this.collaboratorIds.indexOf(friend.userId) == -1) {
+                if (!this.collaboratorIds || this.collaboratorIds.indexOf(friend.userId) == -1) {
                     Stack.update({
                         _id: this._id,
                     }, {
@@ -155,16 +156,22 @@ Template.home.events({
                 }
             }
 
+            Session.set("updateCollaboratorsMark", true);
+
             $stackShareInput.val("");
             $stackShareButton.removeClass("hidden");
             $stackShareInputContainer.addClass("hidden");
         }
     },
     "click .fbCollaboratorImg": function(event, template) {
+        console.log(this);
+        this.stack.collaboratorIds.splice(this.stack.collaboratorIds.indexOf(this.id), 1);
         Stack.update({
-            _id: this._id,
+            _id: this.stack._id,
         }, {
-            collaboratorIds: [this]
+            $set: {
+                collaboratorIds: this.stack.collaboratorIds
+            }
         });
     }
 });

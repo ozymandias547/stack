@@ -27,11 +27,10 @@ Meteor.methods({
                 };
                 for (var i = 0; i < result.data.length; i++) {
                     var friend = result.data[i];
-                    if (usersByName[friend.name]) {
+                    var user = usersByName[friend.name];
+                    if (user || request.all) {
 
-                        friend.userId = usersByName[friend.name]._id;
-
-                        console.log("FOUND", friend);
+                        friend.userId = user ? user._id : 'RAN_' + Math.random();
 
                         res.all.push(friend);
                         res.byName[friend.name] = friend;
