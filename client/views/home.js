@@ -143,7 +143,7 @@ Template.home.events({
 
             $stackShareInput.val("");
             $stackShareButton.removeClass("hidden");
-            $stackShareInput.addClass("hidden");
+            $stackShareInputContainer.addClass("hidden");
         }
 
     }
