@@ -1,14 +1,20 @@
 <template name='home'>
     <div class="container-fluid">
-        
-        <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42">
-        
+        <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42"/>
 
         <button type="button" class="btn btn-link logout">logout</button>
+
         {{#each stacks}}
 			<div class="Stack" id="{{_id}}">
                 <div class="stackTitle" id="{{_id}}">
                     <a href="">{{name}}</a>
+                    {{#each collaboratorIds}}
+                    {{.._id}}
+                    <a class="fbCollaboratorImg">
+
+                        <img class="fbPhotoMini" src="{{fbImageByUserId this}}"/>
+                    </a>
+                    {{/each}}
                 </div>
                 <div class="StackShare"><a href="" class="glyphicon glyphicon-user"></a></div>
                 <div class="StackRemove">

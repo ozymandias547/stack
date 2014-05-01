@@ -22,7 +22,8 @@ Meteor.methods({
             graph.get('/' + user.services.facebook.id + '/friends', null, function(err, result) {
                 var res = {
                     all: [],
-                    byName: {}
+                    byName: {},
+                    byIds: {}
                 };
                 for (var i = 0; i < result.data.length; i++) {
                     var friend = result.data[i];
@@ -34,6 +35,7 @@ Meteor.methods({
 
                         res.all.push(friend);
                         res.byName[friend.name] = friend;
+                        res.byIds[friend.userId] = friend;
                     }
                 }
                 future['return'](res);

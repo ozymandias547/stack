@@ -23,6 +23,7 @@ Deps.autorun(function() {
 
             Session.set('fbFriendsAll', r.all);
             Session.set('fbFriendsByName', r.byName);
+            Session.set('fbFriendsById', r.byIds);
         });
     });
 });
@@ -64,6 +65,19 @@ Template.home.helpers({
     },
     randomId: function() {
         return Random.id();
+    },
+    fbImageByUserId: function(id) {
+        if (Session.get("fbFriendsById")) {
+            console.log("getting fb image for: " + id);
+            console.log(Session.get("fbFriendsById"));
+            var friend = Session.get("fbFriendsById")[id];
+            console.log(friend);
+            if (friend) {
+                return 'http://graph.facebook.com/' + friend.id + '/picture/?type=small';
+            }
+            return "";
+        }
+        return "";
     }
 });
 
@@ -130,21 +144,27 @@ Template.home.events({
                 var friendsByName = Session.get("fbFriendsByName");
                 var friend = friendsByName[$stackShareInput.val()];
 
-                console.log(friend);
-
-                Stack.update({
-                    _id: this._id,
-                }, {
-                    $push: {
-                        collaboratorIds: friend.userId
-                    }
-                });
+                if (this.collaboratorIds.indexOf(friend.userId) == -1) {
+                    Stack.update({
+                        _id: this._id,
+                    }, {
+                        $push: {
+                            collaboratorIds: friend.userId
+                        }
+                    });
+                }
             }
 
             $stackShareInput.val("");
             $stackShareButton.removeClass("hidden");
             $stackShareInput.addClass("hidden");
         }
-
+    },
+    "click .fbCollaboratorImg": function(event, template) {
+        Stack.update({
+            _id: this._id,
+        }, {
+            collaboratorIds: [this]
+        });
     }
 });
