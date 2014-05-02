@@ -1,0 +1,17 @@
+<template name="tasks">
+  <div class="Tasks sortable stackShareSortable">
+    {{#each tasks}}
+      <div class="Task ui-state-default">
+        <div class="TaskTitle">
+          {{name}}
+        </div>
+        <div class="TaskRemove">
+          <a href="" class="glyphicon glyphicon-ok-circle"></a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{ >TaskAddTpl}}
+ 
+</template>

@@ -1,0 +1,30 @@
+<template name="stack">
+  <div class="Stack" id="{{_id}}">
+    <div class="StackHeader" id="{{_id}}">
+      {{name}}
+      
+      <div class="StackHeaderButtons">
+        <div class="StackRemove">
+          <span class="glyphicon glyphicon-trash"></span>
+        </div>
+        <div class="StackShare">
+          <span class="glyphicon glyphicon-user"></span>
+          <span class="glyphicon glyphicon-plus-sign" style="font-size:9px; margin-left:-1.05em;"></span>
+        </div>
+        {{#each collaboratorsMap this}}
+          {{>stackCollaborator this}}
+        {{/each}}
+      </div>
+      <div class="StackShareInput hidden">
+        <input placeholder="Add contributor..." 
+            autocomplete="on" spellcheck="off"
+            data-source="contributors" />
+      </div>
+    </div>
+    <div class="StackBody">
+      <div class="StackDescription">{{description}}</div>
+      
+      {{>tasks this}}
+    </div>  
+  </div>
+</template>

@@ -1,0 +1,81 @@
+@import "lib/lib";
+
+.Stack {
+    border-style: solid;
+    border-color: @c4;
+    background-color: @c5;
+    border-width: 1px;
+    position:relative;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
+}
+
+.StackHeader {
+    padding:0.5em;
+    background-color: @c4;
+    .fontLargeBlack;
+}
+
+.StackHeader a {
+   color: @black; 
+}
+
+.StackHeaderButtons {
+    position:absolute;
+    right: 0em;
+    top:0em;
+    bottom:0em;
+    border-left-style:solid;
+    border-color: @c5;
+    border-width: 5px;
+    padding-right:0.5em;
+    padding-top: 0.5em;
+    padding-left:0.5em;
+}
+
+.StackShare, .StackRemove {
+    cursor:pointer;
+    display:inline;
+    margin-right: 0.25em;
+}
+
+.StackBody {
+    padding-top:0.5em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
+.StackAdd {
+    cursor: pointer;
+    background-color: @c_5;
+    position:relative;
+    padding:0.5em;
+    color: white;
+    text-align:right;
+}
+
+.StackAdd input {
+    color: @black;
+}
+
+.StackAddButton {
+    .fontLargeWhite;
+}
+
+.StackAddButton a {
+    color: @white; 
+}
+
+.StackShareInput {
+    position:absolute;
+    right:0.5em;
+    top: 0.5em;
+    .fontSmallBlack;
+}
+
+.AddStackInputs {
+  padding: 0.5em;
+  position:relative;
+  margin-right:4em;
+  margin-left:4em;
+}
