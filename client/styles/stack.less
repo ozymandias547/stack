@@ -1,10 +1,7 @@
 @import "lib/lib";
 
 .Stack {
-    border-style: solid;
-    border-color: @c4;
     background-color: @c5;
-    border-width: 1px;
     position:relative;
     margin-bottom:0.5em;
     margin-top:0.5em;
@@ -14,6 +11,11 @@
     padding:0.5em;
     background-color: @c4;
     .fontLargeBlack;
+}
+
+.stack-sort-highlight {
+    height: 100px;
+    background-color: red;
 }
 
 .StackHeader a {
@@ -40,9 +42,7 @@
 }
 
 .StackBody {
-    padding-top:0.5em;
-    padding-left:0.5em;
-    padding-right:0.5em;
+    padding: 0.5em 0.5em 0.1em 0.5em;
 }
 
 .StackAdd {

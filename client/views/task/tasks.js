@@ -13,7 +13,7 @@ Template.tasks.rendered = function() {
     $( ".sortable" ).each(function() {
         $(this).sortable({
             placeholder: "ui-state-highlight",
-            connectWith: ".stackShareSortable",
+            connectWith: ".taskSortableShare",
             handle: ".handle"
         });
         $(this).disableSelection();

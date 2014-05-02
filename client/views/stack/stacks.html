@@ -1,8 +1,8 @@
 <template name="stacks">
-  <div class="">
+  <div class="stackSortable">
     {{#each stacks}}
       {{>stack this}}
     {{/each}}
-    {{>stackAdd}}
   </div>
+  {{>stackAdd}}
 </template>
