@@ -11,9 +11,6 @@ Template.main.helpers({
             return user.services.facebook.id;
         }
         return "";
-    },
-    user_name: function() {
-        return Meteor.user().profile.name;
     }
 });
 

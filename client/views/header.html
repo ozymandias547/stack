@@ -1,5 +1,11 @@
 <template name="header">
-  <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42"/>
+  <div class="header">
+    <img src="{{user_image}}" alt="{{user_name}}" height="60" width="60"/>
 
-  <button type="button" class="btn btn-link logout">logout</button>
+    <button type="button" class="btn btn-link logout">logout {{user_name}}</button>
+    <div class="OnMyStackIconContainer">
+      OnMyStack.com
+      <div class="OnMyStackIcon glyphicon glyphicon-tasks"></div>
+    </div>
+  </div>
 </template>

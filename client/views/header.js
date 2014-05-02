@@ -5,5 +5,8 @@ Template.header.helpers({
             return "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
         }
         return "";
+    },
+    user_name: function() {
+        return Meteor.user().profile.name;
     }
 });
