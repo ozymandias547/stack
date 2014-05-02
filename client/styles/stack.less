@@ -1,24 +1,46 @@
+@import "lib/lib";
+
 .Stack {
     border-style: solid;
-    border-color: #FFCE63;
+    border-color: @c4;
+    background-color: @c5;
     border-width: 1px;
-    padding:0.5em;
     position:relative;
     margin-bottom:0.5em;
     margin-top:0.5em;
 }
 
+.StackHeader {
+    padding:0.5em;
+    background-color: @c4;
+}
+
+.StackBody {
+    padding-top:0.5em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
 .StackAdd {
     cursor: pointer;
-    background-color: #FFCE63;
+    background-color: @c_5;
     position:relative;
     padding:0.5em;
+    color: white;
+}
+
+.StackAddButton {
+    .fontLargeWhite;
 }
 
 .StackShare {
     position:absolute;
     right:0.6em;
     top: 0.6em;
+}
+
+.StackHeader {
+    .fontLargeBlack;
 }
 
 .StackRemove {
@@ -36,12 +58,6 @@
 .fbPhotoMini {
   width:16px;
   height:16px;
-}
-
-.stackTitle, .stackTitle a {
-    font-size: 18px;
-    font-weight: bold;
-    color: #B28522;
 }
 
 .stackButtons {
@@ -69,8 +85,6 @@
     color: #FFFFFF;
     margin: 0 15px;
 }
-
-
 
 .AddStackInputs {
   padding: 0.5em;

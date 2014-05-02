@@ -1,8 +1,8 @@
-Template.StackAddTpl.events({
+Template.stackAdd.events({
     "click .StackAdd": function(event, template) {
         var $addStackInputs = $(template.find(".AddStackInputs"));
         var $addStackNameInput = $(template.find("#AddStackNameInput"));
-        var $addStackButton = $(template.find(".AddStackButton"));
+        var $addStackButton = $(template.find(".StackAddButton"));
 
         $addStackInputs.removeClass('hidden');
         $addStackButton.addClass('hidden');
@@ -11,7 +11,7 @@ Template.StackAddTpl.events({
     "click .CreateStackButton": function(event, template) {
         event.stopImmediatePropagation();
 
-        var $addStackButton = $(template.find(".AddStackButton"));
+        var $addStackButton = $(template.find(".StackAddButton"));
         var $addStackInputs = $(template.find(".AddStackInputs"));
         var $addStackNameInput = $(template.find("#AddStackNameInput"));
         var $addStackDescInput = $(template.find("#AddStackDescInput"));
