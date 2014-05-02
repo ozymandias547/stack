@@ -1,9 +1,8 @@
 <template name='home'>
-    <div class="container-fluid">
+    <div class="container-fluid unselectable">
         
         <img src="{{user_image}}" alt="{{user_name}}" height="42" width="42">
         
-
         <button type="button" class="btn btn-link logout">logout</button>
         {{#each stacks}}
 			<div class="Stack" id="{{_id}}">
@@ -21,17 +20,11 @@
                         data-source="contributors" />
                 </div>
                 <div class="StackDescription">{{description}}</div>
-                
-                 {{#each tasks}}
-                     <div class="Task taskBump">
-                        <div class="taskTitle">
-                            {{name}}
-                        </div>
-                        <div class="taskTitle text-align-right right TaskRemove">
-                            <a href="" class="glyphicon glyphicon-ok-circle"></a>
-                        </div>
-                     </div>
-                 {{/each}}
+                <div class="sortable">
+                     {{#each tasks}}
+                        {{ >taskTpl}}
+                     {{/each}}
+                </div>
 
                  {{ >TaskAddTpl}}
            	</div>
@@ -39,4 +32,15 @@
         
         {{ >StackAddTpl}}
     </div>
+</template>
+
+<template name="taskTpl">
+    <li class="ui-state-default Task">
+        <div class="taskTitle">
+            {{name}}
+        </div>
+        <div class="taskTitle text-align-right right TaskRemove">
+            <a href="" class="glyphicon glyphicon-ok-circle"></a>
+        </div>
+    </li>
 </template>

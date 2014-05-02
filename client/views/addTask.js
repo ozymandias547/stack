@@ -28,7 +28,7 @@ Template.TaskAddTpl.events({
             }
             $addTaskInput.val("");
             $addTaskButton.removeClass("hidden");
-            $addTaskInput.addClass("hidden");
+            $addTaskInput.addClass("hidden  ");
         }
     }
-})
+});

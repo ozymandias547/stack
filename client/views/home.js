@@ -15,7 +15,7 @@ Deps.autorun(function() {
             userId: Meteor.userId(),
             onmystackUser: true
         }, function(e, r) {
-            console.log(r);
+            // console.log(r);
 
             r.all.sort(function(a, b) {
                 return a.name < b.name ? -1 : 1;
@@ -28,6 +28,45 @@ Deps.autorun(function() {
 });
 
 var minPriTask, maxPriTask;
+
+SimpleRationalRanks = {
+  beforeFirst: function (firstRank) { return firstRank - 1; },
+  between: function (beforeRank, afterRank) { return (beforeRank + afterRank) / 2; },
+  afterLast: function (lastRank) { return lastRank + 1; }
+};
+
+Template.home.rendered = function() {
+    $( ".sortable" ).each(function() {
+       
+
+
+        $(this).sortable({
+            placeholder: "ui-state-highlight",
+        
+            stop: function (event, ui) { // fired when an item is dropped
+              var el = ui.item.get(0), before = ui.item.prev().get(0), after = ui.item.next().get(0);
+
+              var newRank;
+              if (!before) { // moving to the top of the list
+                // newRank = SimpleRationalRanks.beforeFirst(UI.getElementData(after).rank);
+
+              } else if (!after) { // moving to the bottom of the list
+                // newRank = SimpleRationalRanks.afterLast(UI.getElementData(before).rank);
+
+              } else {
+                // newRank = SimpleRationalRanks.between(
+                  // UI.getElementData(before).rank,
+                  // UI.getElementData(after).rank);
+              }
+              console.log(newRank);
+              // Items.update(UI.getElementData(el)._id, {$set: {rank: newRank}});
+            }
+
+        });
+
+        $(this).disableSelection();
+    });
+}
 
 Template.home.helpers({
     fbFriends: function() {
@@ -70,8 +109,8 @@ Template.home.helpers({
 Template.home.events({
     "click #btnGetFriendlists": function(event) {
         Meteor.call('getFriendLists', null, function(e, r) {
-            console.log('e', e);
-            console.log('r', r);
+            // console.log('e', e);
+            // console.log('r', r);
         });
     },
     "click .logout": function(event) {
@@ -148,3 +187,5 @@ Template.home.events({
 
     }
 });
+
+

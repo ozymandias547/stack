@@ -7,6 +7,15 @@
     margin-bottom: 0.5em;
     padding:0.25em;
     position:relative;
+    width: 100%; 
+    list-style-type: none;
+}
+
+.ui-state-highlight {
+    height: 30px;
+    width: 100%;
+    background-color: rgba(0,0,255, .1);
+    list-style-type: none;
 }
 
 .TaskAdd {

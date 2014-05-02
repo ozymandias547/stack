@@ -4,6 +4,7 @@
     "accounts-ui-bootstrap-3": {},
     "bootstrap-3": {},
     "typeahead": {},
-    "bootstrap3-less": {}
+    "bootstrap3-less": {},
+    "jquery-ui-sortable": {}
   }
 }
