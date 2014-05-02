@@ -1,20 +1,20 @@
 Template.stackAdd.events({
     "click .StackAdd": function(event, template) {
-        var $addStackInputs = $(template.find(".AddStackInputs"));
-        var $addStackNameInput = $(template.find("#AddStackNameInput"));
+        var $addStackInputs = $(template.find(".StackAddInputs"));
+        var $addStackNameInput = $(template.find(".StackAddNameInput"));
         var $addStackButton = $(template.find(".StackAddButton"));
 
         $addStackInputs.removeClass('hidden');
         $addStackButton.addClass('hidden');
         $addStackNameInput.focus();
     },
-    "click .CreateStackButton": function(event, template) {
+    "click .StackAddCommitButton": function(event, template) {
         event.stopImmediatePropagation();
 
         var $addStackButton = $(template.find(".StackAddButton"));
-        var $addStackInputs = $(template.find(".AddStackInputs"));
-        var $addStackNameInput = $(template.find("#AddStackNameInput"));
-        var $addStackDescInput = $(template.find("#AddStackDescInput"));
+        var $addStackInputs = $(template.find(".StackAddInputs"));
+        var $addStackNameInput = $(template.find(".StackAddNameInput"));
+        var $addStackDescInput = $(template.find(".StackAddDescInput"));
 
         if ($addStackNameInput.val() !== undefined) {
             Stack.insert({

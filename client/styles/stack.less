@@ -13,6 +13,29 @@
 .StackHeader {
     padding:0.5em;
     background-color: @c4;
+    .fontLargeBlack;
+}
+
+.StackHeader a {
+   color: @black; 
+}
+
+.StackHeaderButtons {
+    position:absolute;
+    right: 0em;
+    top:0em;
+    bottom:0em;
+    border-left-style:solid;
+    border-color: @c5;
+    border-width: 5px;
+    padding-right:0.5em;
+    padding-top: 0.5em;
+    padding-left:0.5em;
+}
+
+.StackShare, .StackRemove {
+    display:inline;
+    margin-right: 0.25em;
 }
 
 .StackBody {
@@ -27,63 +50,26 @@
     position:relative;
     padding:0.5em;
     color: white;
+    text-align:right;
+}
+
+.StackAdd input {
+    color: @black;
 }
 
 .StackAddButton {
     .fontLargeWhite;
 }
 
-.StackShare {
+.StackAddButton a {
+    color: @white; 
+}
+
+.StackShareInput {
     position:absolute;
-    right:0.6em;
-    top: 0.6em;
-}
-
-.StackHeader {
-    .fontLargeBlack;
-}
-
-.StackRemove {
-    position:absolute;
-    right:2.5em;
-    top: 0.6em;
-}
-
-.StackShareInput input {
-    margin: 2px;
-    padding-left: 5px;
-    margin-left: 1%;
-}
-
-.fbPhotoMini {
-  width:16px;
-  height:16px;
-}
-
-.stackButtons {
-    background-color: #6399FF;
-    position: relative;
-    width: 95%;
-    height:2.5em;
-    margin: 0.25em;
-}
-.stackAddTask {
-    position:absolute;
-    left:1em;
-    top:0.25em;
-}
-.stackButtons .AddTaskInput {
-    margin: 4px;
-    padding-left: 5px;
-    margin-left: 1%;
-    width: 40%;
-}
-.stackButtons .AddTask a, .stackButtons .stackShare a {
-    font-size: 12px;
-    line-height: 34px;
-    font-weight: bold;
-    color: #FFFFFF;
-    margin: 0 15px;
+    right:0.5em;
+    top: 0.5em;
+    .fontSmallBlack;
 }
 
 .AddStackInputs {

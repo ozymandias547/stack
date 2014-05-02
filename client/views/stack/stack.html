@@ -2,21 +2,25 @@
   <div class="Stack" id="{{_id}}">
     <div class="StackHeader" id="{{_id}}">
       {{name}}
-      {{#each collaboratorsMap this}}
+      
+      <div class="StackHeaderButtons">
+        <div class="StackRemove">
+          <a href="" class="glyphicon glyphicon-trash"></a>
+        </div>
+        <div class="StackShare">
+          <a href="" class="glyphicon glyphicon-user"></a>
+        </div>
+        {{#each collaboratorsMap this}}
           {{>stackCollaborator this}}
-      {{/each}}
-    </div>
-    <div class="StackBody">
-      <div class="StackShare"><a href="" class="glyphicon glyphicon-user"></a></div>
-      <div class="StackRemove">
-        <a href="" class="glyphicon glyphicon-minus"></a>
+        {{/each}}
       </div>
-
-      <div class="StackShareInput right hidden">
+      <div class="StackShareInput hidden">
         <input placeholder="Add contributor..." 
             autocomplete="on" spellcheck="off"
             data-source="contributors" />
       </div>
+    </div>
+    <div class="StackBody">
       <div class="StackDescription">{{description}}</div>
       
       {{>tasks this}}

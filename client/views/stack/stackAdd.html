@@ -1,12 +1,14 @@
 <template name="stackAdd">
   <div class="StackAdd">
-      <div class='AddStackInputs hidden'>
-        <input style='width:100%; margin-right: 100px;' id='AddStackNameInput' placeholder="Stack Name..." />
-        <div style='margin-right: 100px; margin-top:0.5em;'>
-          <textarea style='width:100%; resize:none;' id='AddStackDescInput' placeholder="Description..."></textarea>
+      <div class='StackAddInputs hidden'>
+        <input class='StackAddNameInput' placeholder="Stack Name..." />
+        <div>
+          <textarea class='StackAddDescInput' placeholder="Description..."></textarea>
         </div>
-        <button class="CreateStackButton" style='background-color:#00CF00; position:absolute; right:1em; bottom:1em;'>Create!</button>
+        <button class="StackAddCommitButton">Create!</button>
       </div>
-      <div class="StackAddButton text-align-right" id="stackRowAddInputButton">+ Stack</div>
+      <div class="StackAddButton" id="stackRowAddInputButton">
+        <span class="glyphicon glyphicon-plus-sign"></span> 
+      </div>
   </div>
 </template>
