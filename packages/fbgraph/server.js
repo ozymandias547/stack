@@ -11,7 +11,13 @@ Meteor.methods({
         var users = Meteor.users.find().fetch();
         var usersByFbId = {};
 
-        for (var i = 0; i < users.length; i++) usersByFbId[users[i].profile.name] = users[i];
+        for (var i = 0; i < users.length; i++) {
+            if (!users[i].services.facebook) {
+                //need to delete the user?
+            } else {
+                usersByFbId[users[i].services.facebook.id.toString()] = users[i];
+            }
+        }
 
         if (user.services.facebook.accessToken) {
             graph.setAccessToken(user.services.facebook.accessToken);

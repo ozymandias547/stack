@@ -3,13 +3,12 @@ Deps.autorun(function() {
 
     Meteor.subscribe("tasks", Meteor.userId());
 
-    Meteor.subscribe("userConnections", null, function() {
-        console.log(Meteor.user());
-        console.log(Meteor.users.find().fetch());
-    });
+    Meteor.subscribe("userConnections");
 
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
+        console.log("YOU ARE:", Meteor.user());
+        console.log("ALL ARE:", Meteor.users.find().fetch());
 
         Meteor.call('getFacebookFriends', {
             userId: Meteor.userId(),

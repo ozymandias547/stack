@@ -7,8 +7,6 @@ Meteor.publish('stacks', function(userId) {
         userId: userId
     }).count();
 
-    console.log("Stacks for userId: " + userId + " :" + count);
-
     if (count == 0) {
         Stack.insert({
             name: "Home",
@@ -52,27 +50,48 @@ Meteor.publish('tasks', function(userId) {
     });
 });
 
-Meteor.publish("userConnections", function() {
-    console.log("-----PUBLISH USER CONNECTIONS-----");
-
-    if (this.userId) {
-        return userConnectionsForUserId(this.userId);
-    } else {
-        console.log("Not logged in yet.");
-    }
-
-    this.ready();
-
-    console.log("-----/END PUBLISH USER CONNECTIONS-----");
-});
-
 Meteor.publish("userData", function() {
-    console.log("-----PUBLISH LOGGED IN USER DATA-----");
-    console.log(this.userId);
-    if (this.userId)
-        return Meteor.users.find({
-            _id: this.userId
+    if (this.userId) {
+        var self = this;
+        var userIds = [];
+        var userIdsMap = {};
+
+        var stacks;
+        (stacks = getStacksForUserId(this.userId)).fetch().forEach(function(stack) {
+            userIdsMap[stack.userId] ? null : userIds.push(stack.userId);
+            userIdsMap[stack.userId] = true;
+            if (stack.collaboratorIds)
+                stack.collaboratorIds.forEach(function(contributorId) {
+                    userIdsMap[contributorId] ? null : userIds.push(contributorId);
+                    userIdsMap[contributorId] = true;
+                });
         });
+
+        stacks.observeChanges({
+            changed: function(id, fields) {
+                console.log("id: ", id, "fields: ", fields);
+                if (fields.collaboratorIds) {
+                    for (var i = 0; i < fields.collaboratorIds.length; i++) {
+                        var id = fields.collaboratorIds[i];
+                        // Does the user not already exist?
+                        if (userIds.indexOf(id) == -1) {
+                            userIds.push(id);
+                            self.added('users', id);
+                        } else {
+                            self.changed('users', id);
+                        }
+                    }
+                }
+            }
+        });
+
+        var usersForClient = Meteor.users.find({
+            _id: {
+                $in: userIds
+            }
+        });
+
+        return usersForClient;
+    }
     this.ready();
-    console.log("-----/END PUBLISH LOGGED IN USER DATA-----");
 });
