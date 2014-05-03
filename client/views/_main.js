@@ -1,5 +1,3 @@
-// controller for home.html
-document.title = "Stack Home";
 
 Handlebars.registerHelper('fbFriends',
     function() {
