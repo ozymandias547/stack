@@ -1,14 +1,3 @@
-Template.stackCollaborator.helpers({
-    fbImageByUserId: function(id) {
-        var mark = Session.get("updateCollaboratorsMark");
-        if (Session.get("fbFriendsById")) {
-            var friend = Session.get("fbFriendsById")[id];
-            return friend ? 'http://graph.facebook.com/' + friend.id + '/picture/?type=small' : "";
-        }
-        return "";
-    }
-});
-
 Template.stackCollaborator.events({
     "click .fbCollaboratorImg": function(event, template) {
         console.log(this);

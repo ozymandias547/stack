@@ -3,6 +3,11 @@ Deps.autorun(function() {
 
     Meteor.subscribe("tasks", Meteor.userId());
 
+    Meteor.subscribe("userConnections", null, function() {
+        console.log(Meteor.user());
+        console.log(Meteor.users.find().fetch());
+    });
+
     Meteor.subscribe("userData", null, function() {
         Session.set("userData", Meteor.user());
 

@@ -11,6 +11,7 @@
           <span class="glyphicon glyphicon-user"></span>
           <span class="glyphicon glyphicon-plus-sign" style="font-size:9px; margin-left:-1.05em;"></span>
         </div>
+        <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
         {{#each collaboratorsMap this}}
           {{>stackCollaborator this}}
         {{/each}}
