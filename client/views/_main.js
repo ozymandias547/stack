@@ -1,5 +1,3 @@
-// controller for home.html
-document.title = "Stack Home";
 
 Template.main.helpers({
     fbFriends: function() {
