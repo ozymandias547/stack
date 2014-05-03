@@ -4,6 +4,11 @@ Meteor.methods({
         var user = Meteor.users.find({
             _id: request.userId
         }).fetch()[0];
+
+        if (!user) {
+            return false;
+        }
+
         var users = Meteor.users.find().fetch();
         var usersByName = {};
         for (var i = 0; i < users.length; i++) {
@@ -11,6 +16,7 @@ Meteor.methods({
         }
 
         console.log(usersByName);
+
         if (user.services.facebook.accessToken) {
             graph.setAccessToken(user.services.facebook.accessToken);
 
