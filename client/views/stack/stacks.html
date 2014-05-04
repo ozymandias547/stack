@@ -4,10 +4,10 @@
 </head>
 
 <template name="stacks">
+  {{>stackAdd}}
   <div class="stackSortable">
     {{#each stacks}}
       {{>stack this}}
     {{/each}}
   </div>
-  {{>stackAdd}}
 </template>

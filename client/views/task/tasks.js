@@ -22,6 +22,7 @@ Template.tasks.rendered = function() {
             placeholder: "ui-state-highlight",
             // connectWith: ".taskSortableShare",  
             handle: ".handle",
+            axis: "y",
             stop: function(event, ui) {
                 
                 var el = ui.item.get(0),

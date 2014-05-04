@@ -7,28 +7,6 @@ Meteor.publish('stacks', function(userId) {
         return null;
     }
 
-    console.log("Stacks for userId: " + userId + " :" + count);
-
-    if (!count) {
-        Stack.insert({
-            name: "Home",
-            userId: userId,
-            collaboratorIds: []
-        });
-
-        Stack.insert({
-            name: "Work",
-            userId: userId,
-            collaboratorIds: []
-        });
-
-        Stack.insert({
-            name: "Play",
-            userId: userId,
-            collaboratorIds: []
-        });
-    }
-
     return Stack.find({
         $or: [{
             userId: userId

@@ -1,16 +1,16 @@
 <template name="stack">
-  <div class="Stack ui-state-default" id="{{_id}}">
+  <div class="Stack contentMargins" id="{{_id}}">
     <div class="StackHeader stackSortHandle" id="{{_id}}">
       {{name}}
       
       <div class="StackHeaderButtons">
-        <div class="StackRemove">
+        <a href="#" class="StackRemove noLinkStyling">
           <span class="glyphicon glyphicon-trash"></span>
-        </div>
-        <div class="StackShare">
+        </a>
+        <a href="#" class="StackShare noLinkStyling">
           <span class="glyphicon glyphicon-user"></span>
           <span class="glyphicon glyphicon-plus-sign" style="font-size:9px; margin-left:-1.05em;"></span>
-        </div>
+        </a>
         {{#each collaboratorsMap this}}
           {{>stackCollaborator this}}
         {{/each}}
