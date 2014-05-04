@@ -1,21 +1,23 @@
 <template name="stack">
   <div class="Stack contentMargins" id="{{_id}}">
-    <div class="StackHeader stackSortHandle" id="{{_id}}">
-      {{name}}
-      
-      <div class="StackHeaderButtons">
-        <a href="#" class="StackRemove noLinkStyling">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-        <a href="#" class="StackShare noLinkStyling">
-          <span class="glyphicon glyphicon-user"></span>
-          <span class="glyphicon glyphicon-plus-sign" style="font-size:9px; margin-left:-1.05em;"></span>
-        </a>
-        <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
-        {{#each collaboratorsMap this}}
-          {{>stackCollaborator this}}
-        {{/each}}
+    <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
+      <div class="StackName">
+        {{name}}
       </div>
+        <div class="stackButtonDock">
+          {{#if $isEditing}}
+          <button class="noStyling stackIcon StackShare">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+          </button>
+          <button class="noStyling stackIcon StackRemove">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+          {{/if}}
+          <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
+          {{#each collaboratorsMap this}}
+            {{>stackCollaborator this}}
+          {{/each}}
+        </div>
       <div class="StackShareInput hidden">
         <input placeholder="Add contributor..." 
             autocomplete="on" spellcheck="off"

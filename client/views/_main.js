@@ -3,6 +3,11 @@ Handlebars.registerHelper('fbFriends',
         return Session.get('fbFriendsAll');
     });
 
+Session.set("isEditing", false)
+Handlebars.registerHelper('$isEditing', function() {
+    return Session.get('isEditing');
+});
+
 Handlebars.registerHelper('$userId',
     function() {
         return Meteor.user() ? Meteor.user()._id : 'N/A';

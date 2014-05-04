@@ -3,7 +3,9 @@
     {{#each tasks}}
       <div class="Task ui-state-default">
         <div class="TaskTitle">
-        <span class="handle glyphicon glyphicon-resize-vertical"></span>
+        {{#if $isEditing}}
+          <span class="handle glyphicon glyphicon-resize-vertical"></span>
+        {{/if}}  
           {{name}}
         </div>
         <div class="TaskRemove">

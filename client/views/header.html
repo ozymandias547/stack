@@ -1,6 +1,25 @@
 <template name="header">
   <div class="header contentMargins">
-    <img src="{{user_image}}" alt="{{user_name}}" height="60" width="60"/>
-    <button type="button" class="btn btn-link logout">logout</button>
+    <img src="{{user_image}}" alt="{{user_name}}" height="60" width="60" data-toggle="modal" data-target="#myModal"/>
+  
+    
+	<!-- Logout Modal -->
+	<div class="headerModal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	    	<div class="modal-body">
+	        	<button type="button" class="btn btn-default logout" data-dismiss="modal">Log out?</button>
+	        	<button type="button" class="btn btn-default logout" data-dismiss="modal">Change Password?</button>
+	        	<button type="button" class="btn btn-default logout" data-dismiss="modal">Have a problem?</button>
+
+	      	</div> 
+	    </div>
+	  </div>
+	</div>
+
+    <button class="noStyling stackIcon edit">
+		<span class="glyphicon glyphicon-pencil"></span>	
+	</button>
   </div>
 </template>
+
