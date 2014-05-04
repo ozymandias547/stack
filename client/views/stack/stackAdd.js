@@ -1,4 +1,3 @@
-
 Template.stackAdd.events({
     "click .stackInitAdd": function(event, template) {
         var $addStackInputs = $(template.find(".StackAddInputs"));
@@ -19,12 +18,18 @@ Template.stackAdd.events({
         var $originalButton = $(template.find("#stackRowAddInputButton"));
 
         if ($addStackNameInput.val() !== undefined) {
+            var max = Stack.find({}, {
+                sort: {
+                    priority: -1
+                }
+            }).fetch()[0].priority;
+
             Stack.insert({
                 userId: Meteor.userId(),
                 name: $addStackNameInput.val(),
                 description: $addStackDescInput.val(),
                 collaboratorIds: [],
-                priority: 0
+                priority: max + 1
             });
         }
 
@@ -47,7 +52,7 @@ Template.stackAdd.events({
         $addStackDescInput.val('');
         $addStackInputs.addClass('hidden');
         $addStackButton.removeClass('hidden');
-        
+
         $originalButton.focus();
     }
 });

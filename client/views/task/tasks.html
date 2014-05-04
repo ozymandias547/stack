@@ -3,14 +3,15 @@
     {{#each tasks}}
       <div class="Task ui-state-default clearfix">
         <div class="TaskTitle">
-        {{#if $isEditing}}
           <span class="handle glyphicon glyphicon-resize-vertical"></span>
-        {{/if}}  
           {{name}}
         </div>
-        <button id="stackRowAddInputButton" class="noStyling stackIcon TaskComplete">
+        <div class="TaskStartStop">
+          <span class="glyphicon {{startStopGlyph this}}"></span>
+        </div>
+        <div id="stackRowAddInputButton" class="noStyling stackIcon TaskComplete">
           <span class="glyphicon glyphicon-ok-circle"></span>
-        </button>
+        </div>
       </div>
     {{/each}}
   </div>

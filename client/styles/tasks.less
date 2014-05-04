@@ -1,23 +1,17 @@
 @import "lib/lib";
 
-.Tasks {
-}
-
 .Task {
     .fontMidWhite;
     border: none;
     background-color: @white;
     margin-bottom: 0.5em;
     position:relative;
-    -webkit-box-shadow: -1px 0px 1px 0px rgba(50, 50, 50, 1);
-    -moz-box-shadow:    -1px 0px 1px 0px rgba(50, 50, 50, 1);
-    box-shadow:         -1px 0px 1px 0px rgba(50, 50, 50, 1);
 }
 
 .Task .TaskTitle {
-    float: left;
-    margin: 0.5em 0 0 0.5em;
     .fontMidBlack;
+    margin: 0.5em;
+    padding-right:40px;
 }
 
 .TaskAdd .form-group {
@@ -28,15 +22,26 @@
 }
 
 .Task .TaskComplete {
-    float:right;
-    height: 28px;
-    color: white;
+    position: absolute;
+    right: 0;
+    top:0;
+    padding:0.5em;
+    color: @black;
 }
+
 .Task .TaskComplete:hover {
     color: green;
 }
 
-.TaskComplete a {
+.TaskStartStop {
+    cursor:pointer;
+    position:absolute;
+    top:0px;
+    right:20px;
+    padding:0.5em;
+}
+
+.TaskComplete a, .TaskStartStop a {
     color: @black;
 }
 
@@ -47,7 +52,6 @@
     margin-bottom: 0.5em;
     padding:0.5em;
     position:relative;
-    border-radius: 3px;
 }
 
 .TaskAdd a {

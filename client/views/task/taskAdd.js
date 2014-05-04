@@ -1,4 +1,3 @@
-
 Template.TaskAddTpl.helpers({
     "isEditingAddTask": function(template) {
         return this.isEditing || false;
@@ -8,10 +7,8 @@ Template.TaskAddTpl.helpers({
 Template.TaskAddTpl.events({
 
     "click .TaskAddButton": function(event, template) {
-
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
-       
 
         $addTaskButton.addClass("hidden");
         $TaskAddForm.removeClass("hidden");
@@ -26,9 +23,13 @@ Template.TaskAddTpl.events({
         var $TaskAddButton = $(template.find(".TaskAddButton"));
         var $TaskTextArea = $(template.find('textarea'))
 
-        var newPriority = _.max(Task.find({ stackId: this._id }).fetch().map(function(task) { return task.priority })) + 1;
+        var newPriority = _.max(Task.find({
+            stackId: this._id
+        }).fetch().map(function(task) {
+            return task.priority
+        })) + 1;
 
-        if ( newPriority == -Infinity ) newPriority = 0;
+        if (newPriority == -Infinity) newPriority = 0;
 
         Task.insert({
             userId: Meteor.userId(),
@@ -42,19 +43,17 @@ Template.TaskAddTpl.events({
         $TaskAddForm.addClass("hidden");
 
         $TaskAddButton.find('a').focus();
-        
     },
 
     "click .TaskAddCancel": function(event, template) {
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
         var $TaskAddButton = $(template.find(".TaskAddButton"));
-        
+
         $(template.find('textarea')).val("");
         $addTaskButton.removeClass("hidden");
         $TaskAddForm.addClass("hidden");
 
         $TaskAddButton.find('a').focus();
     }
-
 });
