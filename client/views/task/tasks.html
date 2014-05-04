@@ -1,16 +1,16 @@
 <template name="tasks">
-  <div class="Tasks sortable taskSortableShare">
+  <div class="Tasks sortable taskSortableShare ">
     {{#each tasks}}
-      <div class="Task ui-state-default">
+      <div class="Task ui-state-default clearfix">
         <div class="TaskTitle">
         {{#if $isEditing}}
           <span class="handle glyphicon glyphicon-resize-vertical"></span>
         {{/if}}  
           {{name}}
         </div>
-        <div class="TaskRemove">
-          <a href="" class="glyphicon glyphicon-ok-circle"></a>
-        </div>
+        <button id="stackRowAddInputButton" class="noStyling stackIcon TaskComplete">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+        </button>
       </div>
     {{/each}}
   </div>

@@ -58,15 +58,12 @@ button.stackIcon {
   vertical-align: middle;
 }
 button.stackIcon:hover {
+  color: gray;
 }
 button.stackIcon:focus {
-  background-color: red;
+  border: 1px solid gray;
 }
 
-/*button.stackIcon.small {
-  width: 28px;
-  height: 28px;
-}*/
 
 .handle {
   cursor:pointer;
@@ -102,6 +99,9 @@ button.stackIcon:focus {
 
 .contentMargins {
   margin-bottom: 0.5em;
+  -webkit-box-shadow: -1px 0px 1px 0px rgba(50, 50, 50, 1);
+  -moz-box-shadow:    -1px 0px 1px 0px rgba(50, 50, 50, 1);
+  box-shadow:         -1px 0px 1px 0px rgba(50, 50, 50, 1);
 }
 
 .contentMargins:last-child {

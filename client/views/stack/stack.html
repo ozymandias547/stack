@@ -2,7 +2,7 @@
   <div class="Stack contentMargins" id="{{_id}}">
     <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
       <div class="StackName">
-        {{name}}
+        {{name}}{{#if description}}: <span class="description">{{description}}</span>{{/if}}
       </div>
         <div class="stackButtonDock">
           {{#if $isEditing}}
@@ -24,9 +24,7 @@
             data-source="contributors" />
       </div>
     </div>
-    <div class="StackBody">
-      <div class="StackDescription">{{description}}</div>
-      
+    <div class="StackBody">      
       {{>tasks this}}
     </div>  
   </div>

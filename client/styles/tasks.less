@@ -8,11 +8,15 @@
     border: none;
     background-color: @white;
     margin-bottom: 0.5em;
-    padding:0.5em;
     position:relative;
+    -webkit-box-shadow: -1px 0px 1px 0px rgba(50, 50, 50, 1);
+    -moz-box-shadow:    -1px 0px 1px 0px rgba(50, 50, 50, 1);
+    box-shadow:         -1px 0px 1px 0px rgba(50, 50, 50, 1);
 }
 
-.TaskTitle {
+.Task .TaskTitle {
+    float: left;
+    margin: 0.5em 0 0 0.5em;
     .fontMidBlack;
 }
 
@@ -23,15 +27,16 @@
     margin-bottom: 0;
 }
 
-.TaskRemove {
-    cursor:pointer;
-    position:absolute;
-    top:0px;
-    right:0px;
-    padding:0.5em;
+.Task .TaskComplete {
+    float:right;
+    height: 28px;
+    color: white;
+}
+.Task .TaskComplete:hover {
+    color: green;
 }
 
-.TaskRemove a {
+.TaskComplete a {
     color: @black;
 }
 

@@ -55,7 +55,7 @@ Template.tasks.rendered = function() {
 }
 
 Template.tasks.events({
-    "click .TaskRemove": function(event, template) {
+    "click .TaskComplete": function(event, template) {
         Task.remove({
             _id: this._id
         });
