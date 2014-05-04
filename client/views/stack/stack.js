@@ -12,9 +12,11 @@ Template.stack.helpers({
 
 Template.stack.events({
     "click .StackRemove": function(event, template) {
-        Stack.remove({
-            _id: this._id
-        });
+        var isSure = confirm("Are you sure you would like to remove this stack?");
+        if (isSure)
+            Stack.remove({
+                _id: this._id
+            });
     },
     "click .StackShare": function(event, template) {
         var $stackShareButton = $(template.find(".StackShare")),
