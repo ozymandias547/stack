@@ -2,7 +2,7 @@ Template.stacks.helpers({
     stacks: function() {
         return Stack.find({}, {
             sort: {
-                priority: 1
+                priority: -1
             }
         });
     },
