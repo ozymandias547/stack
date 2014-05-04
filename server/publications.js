@@ -3,31 +3,16 @@ Meteor.publish('stacks', function(userId) {
         return null;
     }
 
-    var count = Stack.find({
-        userId: userId
-    }).count();
+    return Stack.find({
+        $or: [{
+            userId: userId
+        }, {
+            collaboratorIds: {
+                $all: [userId]
+            }
+        }]
+    });
 
-    if (count == 0) {
-        Stack.insert({
-            name: "Home",
-            userId: userId,
-            collaboratorIds: []
-        });
-
-        Stack.insert({
-            name: "Work",
-            userId: userId,
-            collaboratorIds: []
-        });
-
-        Stack.insert({
-            name: "Play",
-            userId: userId,
-            collaboratorIds: []
-        });
-    }
-
-    return getStacksForUserId(userId);
 });
 
 Meteor.publish('tasks', function(userId) {

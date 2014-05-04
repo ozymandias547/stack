@@ -2,9 +2,12 @@
   <div class="Tasks sortable taskSortableShare">
     {{#each tasks}}
       <div class="Task ui-state-default">
-        <span class="handle glyphicon glyphicon-resize-vertical"></span>
         <div class="TaskTitle">
+          <span class="handle glyphicon glyphicon-resize-vertical"></span>
           {{name}}
+        </div>
+        <div class="TaskStartStop">
+          <a href="" class="glyphicon {{startStopGlyph this}}"></a>
         </div>
         <div class="TaskRemove">
           <a href="" class="glyphicon glyphicon-ok-circle"></a>

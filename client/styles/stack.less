@@ -3,8 +3,6 @@
 .Stack {
     background-color: @c5;
     position:relative;
-    margin-bottom:0.5em;
-    margin-top:0.5em;
 }
 
 .StackHeader {
@@ -16,6 +14,26 @@
 .stack-sort-highlight {
     height: 100px;
     background-color: red;
+    margin-bottom: 0.5em;
+}
+
+
+.StackAdd {
+    cursor: pointer;
+    background-color: @c_5;
+    position:relative;
+    padding:0.5em;
+    color: white;
+    text-align:right;
+    border-radius: 2px;
+}
+
+.StackAdd .form-group {
+    margin-bottom: 0.5em;
+}
+
+.StackAdd .form-group:last-child {
+    margin-bottom: 0;
 }
 
 .StackHeader a {
@@ -45,24 +63,16 @@
     padding: 0.5em 0.5em 0.1em 0.5em;
 }
 
-.StackAdd {
-    cursor: pointer;
-    background-color: @c_5;
-    position:relative;
-    padding:0.5em;
-    color: white;
-    text-align:right;
-}
 
 .StackAdd input {
     color: @black;
 }
 
-.StackAddButton {
+.stackInitAdd {
     .fontLargeWhite;
 }
 
-.StackAddButton a {
+.stackInitAdd a {
     color: @white; 
 }
 
