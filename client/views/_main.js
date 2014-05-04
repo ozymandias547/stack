@@ -14,7 +14,7 @@ Handlebars.registerHelper('$userFbId',
     });
 
 Handlebars.registerHelper('$userImage', function() {
-    return (Meteor.user() && Meteor.user().services) ? 'http://graph.facebook.com/' + Meteor.user().services.facebook.id + '/picture/?type=large' : '';
+    return (Meteor.user() && Meteor.user().services) ? 'http://graph.facebook.com/' + Meteor.user().services.facebook.id + '/picture/?type=normal' : '';
 });
 
 Handlebars.registerHelper('$userName', function() {

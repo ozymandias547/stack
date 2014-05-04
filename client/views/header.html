@@ -1,8 +1,12 @@
 <template name="header">
-  <div class="header">
-    <img src="{{$userImage}}" alt="{{$userName}}" height="60" width="60"/>
-
-    <button type="button" class="btn btn-link logout">logout {{$userName}} {{$userId}}</button>
+  <div class="AppHeader">
+    <div class="header">
+      <div class="Welcome">Welcome {{$userName}}</div>
+      <div class="ImageLogout">
+        <img src="{{$userImage}}" alt="{{$userName}}" height="60" width="60"/>
+        <button type="button" class="btn btn-link logout">logout</button>
+      </div>
+    </div>
     <div class="OnMyStackIconContainer">
       OnMyStack.com
       <div class="OnMyStackIcon glyphicon glyphicon-tasks"></div>
