@@ -7,10 +7,8 @@ Template.TaskAddTpl.helpers({
 Template.TaskAddTpl.events({
 
     "click .TaskAddButton": function(event, template) {
-
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
-
 
         $addTaskButton.addClass("hidden");
         $TaskAddForm.removeClass("hidden");

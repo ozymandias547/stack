@@ -1,32 +1,36 @@
 <template name="stack">
   <div class="Stack contentMargins" id="{{_id}}">
     <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
-      <div class="StackName">
+      <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
+      <div class="StackTitle">
         {{name}}
       </div>
-        <div class="stackButtonDock">
-          {{#if $isEditing}}
-          <button class="noStyling stackIcon StackShare">
-            <span class="glyphicon glyphicon-plus-sign"></span>
-          </button>
-          <button class="noStyling stackIcon StackRemove">
-            <span class="glyphicon glyphicon-trash"></span>
-          </button>
-          {{/if}}
-          <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
-          {{#each collaboratorsMap this}}
-            {{>stackCollaborator this}}
-          {{/each}}
-        </div>
+      
+      <div class="stackButtonDock">
+        <button class="noStyling stackIcon StackShare">
+          <div style="position:relative;">
+            <span class="glyphicon glyphicon glyphicon-user"></span>
+            <span class="glyphicon glyphicon-plus-sign" style="position: absolute; top:5px;left:19px; font-size:9px;"></span>
+          </div>
+        </button>
+        <button class="noStyling stackIcon StackRemove">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        
+        {{#each collaboratorsMap this}}
+          {{>stackCollaborator this}}
+        {{/each}}
+      </div>
       <div class="StackShareInput hidden">
         <input placeholder="Add contributor..." 
             autocomplete="on" spellcheck="off"
             data-source="contributors" />
       </div>
     </div>
-    <div class="StackBody">
+    {{#if description}}
       <div class="StackDescription">{{description}}</div>
-      
+    {{/if}}
+    <div class="StackBody">      
       {{>tasks this}}
     </div>  
   </div>

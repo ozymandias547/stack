@@ -1,20 +1,17 @@
 @import "lib/lib";
 
-.Tasks {
-}
-
 .Task {
     .fontMidWhite;
     border: none;
     background-color: @white;
     margin-bottom: 0.5em;
-    padding:0.5em;
     position:relative;
 }
 
-.TaskTitle {
+.Task .TaskTitle {
     .fontMidBlack;
-    padding-right:50px;
+    margin: 0.5em;
+    padding-right:40px;
 }
 
 .TaskAdd .form-group {
@@ -24,12 +21,16 @@
     margin-bottom: 0;
 }
 
-.TaskRemove {
-    cursor:pointer;
-    position:absolute;
-    top:0px;
-    right:0px;
+.Task .TaskComplete {
+    position: absolute;
+    right: 0;
+    top:0;
     padding:0.5em;
+    color: @black;
+}
+
+.Task .TaskComplete:hover {
+    color: green;
 }
 
 .TaskStartStop {
@@ -40,7 +41,7 @@
     padding:0.5em;
 }
 
-.TaskRemove a, .TaskStartStop a {
+.TaskComplete a, .TaskStartStop a {
     color: @black;
 }
 
@@ -51,7 +52,6 @@
     margin-bottom: 0.5em;
     padding:0.5em;
     position:relative;
-    border-radius: 3px;
 }
 
 .TaskAdd a {

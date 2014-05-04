@@ -4,14 +4,14 @@ body {
     margin: 0px;
     padding: 0px;
     .fontMidBlack;
-    background-image:url(http://w8themes.com/wp-content/uploads/2013/11/Funny-Backgrounds.jpg);
+
+    background-image:url(http://yahbey.com/wp-content/uploads/2013/12/red-and-black-wallpapers.jpg);
     background-attachment:fixed;
     background-size: 100%;
 }
 
 input[type=text],
 textarea.form-control   {
-  border-radius: 0px;
   height: 32px;
 }
 
@@ -36,9 +36,6 @@ a.noLinkStyling:focus {
 
 button {
     border : 0px;
-    -moz-border-radius:7px;
-    -webkit-border-radius:7px;
-     border-radius:7px;
 }
 
 button.noStyling {
@@ -46,8 +43,8 @@ button.noStyling {
   background: none;
   padding: 0;
   margin: 0;
-  border-radius: 0;
 }
+
 button.noStyling:focus {
     outline: none;
 }
@@ -57,16 +54,14 @@ button.stackIcon {
   height: 35px;
   vertical-align: middle;
 }
+
 button.stackIcon:hover {
-}
-button.stackIcon:focus {
-  background-color: red;
+  color: gray;
 }
 
-/*button.stackIcon.small {
-  width: 28px;
-  height: 28px;
-}*/
+button.stackIcon:focus {
+  border: 1px solid gray;
+}
 
 .handle {
   cursor:pointer;
@@ -89,17 +84,9 @@ button.stackIcon:focus {
 
 .header {
   width:100%;
-  background-color: @white;
-  padding:0.5em;
+  padding-top:0.5em;
+  padding-bottom:0.5em;
   position:relative;
-  background-color: rgb(200,225,255);
-  border-radius: 3px;
-}
-
-.header img {
-  width: 35px;
-  height: 35px;
-  margin: 5px;
 }
 
 .contentMargins {
@@ -133,5 +120,9 @@ button.stackIcon:focus {
   .fontLargeBlack;
 }
 
-.ImageLogout {
+.UserImage {
+  cursor:pointer;
+  width:60px;
+  height:60px;
+  float:left;
 }
