@@ -10,3 +10,12 @@ Template.header.helpers({
         return Meteor.user().profile.name;
     }
 });
+
+Template.header.events({
+    "click .edit": function() {
+
+        if (Session.get("isEditing"))  Session.set("isEditing", false)
+        else Session.set("isEditing", true);
+        
+    }
+})

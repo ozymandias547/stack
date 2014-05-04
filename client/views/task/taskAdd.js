@@ -1,45 +1,61 @@
+Template.TaskAddTpl.helpers({
+    "isEditingAddTask": function(template) {
+        return this.isEditing || false;
+    }
+})
+
 Template.TaskAddTpl.events({
 
-    "click .TaskAdd": function(event, template) {
-        console.log("add");
+    "click .TaskAddButton": function(event, template) {
+
         var $addTaskButton = $(template.find(".TaskAddButton"));
-        var $addTaskInput = $(template.find(".TaskAddInput"));
+        var $TaskAddForm = $(template.find(".TaskAddForm"));
+
 
         $addTaskButton.addClass("hidden");
-        $addTaskInput.removeClass("hidden");
+        $TaskAddForm.removeClass("hidden");
 
-        $addTaskInput.focus();
+        $TaskAddForm.find("textarea").focus();
     },
 
-    "keydown .TaskAddInput": function(event, template) {
+    "click .TaskAddSubmit": function(event, template) {
 
         var $addTaskButton = $(template.find(".TaskAddButton"));
-        var $addTaskInput = $(template.find(".TaskAddInput"));
+        var $TaskAddForm = $(template.find(".TaskAddForm"));
+        var $TaskAddButton = $(template.find(".TaskAddButton"));
+        var $TaskTextArea = $(template.find('textarea'))
 
-        if (event.keyCode == 13) {
-            if ($addTaskInput.val() != '') {
-                // Find highest priority of tasks where stackId is this._id, and add 1.
+        var newPriority = _.max(Task.find({
+            stackId: this._id
+        }).fetch().map(function(task) {
+            return task.priority
+        })) + 1;
 
-                var newPriority = _.max(Task.find({
-                    stackId: this._id
-                }).fetch().map(function(task) {
-                    return task.priority
-                })) + 1;
+        if (newPriority == -Infinity) newPriority = 0;
 
-                console.log(newPriority);
-                if (newPriority == -Infinity) newPriority = 0;
+        Task.insert({
+            userId: Meteor.userId(),
+            stackId: this._id,
+            name: $TaskTextArea.val(),
+            priority: newPriority
+        });
 
-                Task.insert({
-                    userId: Meteor.userId(),
-                    stackId: this._id,
-                    name: $addTaskInput.val(),
-                    priority: newPriority,
-                    activeUserIds: []
-                });
-            }
-            $addTaskInput.val("");
-            $addTaskButton.removeClass("hidden");
-            $addTaskInput.addClass("hidden  ");
-        }
+        $(template.find('textarea')).val("");
+        $addTaskButton.removeClass("hidden");
+        $TaskAddForm.addClass("hidden");
+
+        $TaskAddButton.find('a').focus();
+    },
+
+    "click .TaskAddCancel": function(event, template) {
+        var $addTaskButton = $(template.find(".TaskAddButton"));
+        var $TaskAddForm = $(template.find(".TaskAddForm"));
+        var $TaskAddButton = $(template.find(".TaskAddButton"));
+
+        $(template.find('textarea')).val("");
+        $addTaskButton.removeClass("hidden");
+        $TaskAddForm.addClass("hidden");
+
+        $TaskAddButton.find('a').focus();
     }
 });

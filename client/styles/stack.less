@@ -5,10 +5,30 @@
     position:relative;
 }
 
+.Stack .stackButtonDock {
+    float: right;
+    display: inline-block;
+}
+
+.Stack .stackButtonDock .stackIcon {
+    float: left;
+}
+
+.Stack .stackButtonDock img.fbCollaboratorImg {
+    vertical-align: middle;
+    float: right;
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+}
+
 .StackHeader {
-    padding:0.5em;
     background-color: @c4;
     .fontLargeBlack;
+}
+.StackHeader .StackName {
+    padding: 0.5em 0 0 0.5em;
+    float: left;
 }
 
 .stack-sort-highlight {
@@ -20,16 +40,18 @@
 
 .StackAdd {
     cursor: pointer;
-    background-color: @c_5;
+    background-color: @c4;
     position:relative;
-    padding:0.5em;
     color: white;
-    text-align:right;
     border-radius: 2px;
 }
 
 .StackAdd .form-group {
     margin-bottom: 0.5em;
+}
+
+.StackAdd .StackAddInputs {
+    margin: 0.5em;
 }
 
 .StackAdd .form-group:last-child {
@@ -40,7 +62,7 @@
    color: @black; 
 }
 
-.StackHeaderButtons {
+/*.StackHeaderButtons {
     position:absolute;
     right: 0em;
     top:0em;
@@ -48,10 +70,7 @@
     border-left-style:solid;
     border-color: @c5;
     border-width: 5px;
-    padding-right:0.5em;
-    padding-top: 0.5em;
-    padding-left:0.5em;
-}
+}*/
 
 .StackShare, .StackRemove {
     cursor:pointer;

@@ -3,14 +3,16 @@
     {{#each tasks}}
       <div class="Task ui-state-default">
         <div class="TaskTitle">
+        {{#if $isEditing}}
           <span class="handle glyphicon glyphicon-resize-vertical"></span>
+        {{/if}}  
           {{name}}
         </div>
         <div class="TaskStartStop">
-          <a href="" class="glyphicon {{startStopGlyph this}}"></a>
+          <span class="glyphicon {{startStopGlyph this}}"></span>
         </div>
         <div class="TaskRemove">
-          <a href="" class="glyphicon glyphicon-ok-circle"></a>
+          <span class="glyphicon glyphicon-ok-circle"></span>
         </div>
       </div>
     {{/each}}
