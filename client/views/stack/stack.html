@@ -1,10 +1,8 @@
 <template name="stack">
   <div class="Stack contentMargins" id="{{_id}}">
     <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
-      <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
-      <div class="StackTitle">
-        {{name}} {{priority}}
-      </div>
+      <img class="fbOwnerImage" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
+      
       
       <div class="stackButtonDock">
         <button class="noStyling stackIcon StackShare">
@@ -20,6 +18,9 @@
         {{#each collaboratorsMap this}}
           {{>stackCollaborator this}}
         {{/each}}
+      </div>
+      <div class="StackTitle">
+        {{name}} {{priority}}
       </div>
       <div class="StackShareInput hidden">
         <input placeholder="Add contributor..." 
