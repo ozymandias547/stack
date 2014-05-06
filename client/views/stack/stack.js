@@ -11,40 +11,6 @@ Template.stack.helpers({
 });
 
 Template.stack.events({
-    "click .StackEditTitleButton": function(event, template) {
-        var $StackTitle = $(template.find('.StackTitle'));
-        var $StackEditTitleForm = $(template.find('.StackEditTitleForm'));
-
-        $StackTitle.addClass('hidden');
-        $StackEditTitleForm.removeClass('hidden');
-
-        $StackEditTitleForm.find('input').focus();
-    },
-    "click .StackEditTitleSubmit": function(event, template) {
-        var $StackTitle = $(template.find('.StackTitle'));
-        var $StackEditTitleForm = $(template.find('.StackEditTitleForm'));
-        var $StackEditTitleInput = $(template.find('input'))
-
-        Stack.update({
-            _id: this._id
-        }, {
-            $set: {
-                name: $StackEditTitleInput.val()
-            }
-        });
-
-        $StackTitle.removeClass('hidden');
-        $StackEditTitleForm.addClass("hidden");
-    },
-
-    "click .StackEditTitleCancel": function(event, template) {
-        var $StackTitle = $(template.find(".StackTitle"));
-        var $StackEditTitleForm = $(template.find(".StackEditTitleForm"));
-
-        $(template.find('input')).val(this.name);
-        $StackTitle.removeClass("hidden");
-        $StackEditTitleForm.addClass("hidden");
-    },
     "click .StackRemove": function(event, template) {
         var isSure = confirm("Are you sure you would like to remove this stack?");
         if (isSure)
