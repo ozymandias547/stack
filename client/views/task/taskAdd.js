@@ -21,7 +21,7 @@ Template.TaskAddTpl.events({
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
         var $TaskAddButton = $(template.find(".TaskAddButton"));
-        var $TaskTextArea = $(template.find('textarea'))
+        var $TaskInput = $(template.find('input'))
 
         var newPriority = _.max(Task.find({
             stackId: this._id
@@ -34,7 +34,7 @@ Template.TaskAddTpl.events({
         Task.insert({
             userId: Meteor.userId(),
             stackId: this._id,
-            name: $TaskTextArea.val(),
+            name: $TaskInput.val(),
             priority: newPriority
         });
 

@@ -1,20 +1,7 @@
 <template name="tasks">
   <div class="Tasks sortable taskSortableShare">
     {{#each tasks}}
-      <div class="Task ui-state-default clearfix">
-        <div class="buttonDockRight">
-          <button class="TaskStartStop noStyling stackIcon">
-            <span class="glyphicon {{startStopGlyph this}}"></span>
-          </button>
-          <button id="stackRowAddInputButton" class="noStyling stackIcon TaskComplete">
-            <span class="glyphicon glyphicon-ok-circle"></span>
-          </button>
-        </div>
-        <div class="TaskTitle">
-          <span class="handle glyphicon glyphicon-resize-vertical"></span>
-          {{name}}
-        </div>
-      </div>
+      {{> task this}}
     {{/each}}
   </div>
 </template>
