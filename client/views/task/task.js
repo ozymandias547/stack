@@ -40,8 +40,12 @@ Template.task.events({
         $TaskEditForm.addClass("hidden");
     },
     "click .TaskComplete": function(event, template) {
-        Task.remove({
+        Task.update({
             _id: this._id
+        }, {
+            $set: {
+                state: 1
+            }
         });
     },
     "click .TaskStartStop": function(event, template) {

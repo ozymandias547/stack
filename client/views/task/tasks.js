@@ -1,7 +1,10 @@
 Template.tasks.helpers({
     tasks: function() {
         return Task.find({
-            stackId: this._id
+            stackId: this._id,
+            state: {
+                $ne: 1
+            }
         }, {
             sort: {
                 priority: 1

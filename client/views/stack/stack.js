@@ -14,8 +14,12 @@ Template.stack.events({
     "click .StackRemove": function(event, template) {
         var isSure = confirm("Are you sure you would like to remove this stack?");
         if (isSure)
-            Stack.remove({
+            Stack.update({
                 _id: this._id
+            }, {
+                $set: {
+                    state: 1
+                }
             });
     },
     "click .StackShare": function(event, template) {

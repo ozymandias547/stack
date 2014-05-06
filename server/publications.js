@@ -4,11 +4,17 @@ Meteor.publish('stacks', function(userId) {
     }
 
     return Stack.find({
-        $or: [{
-            userId: userId
+        $and: [{
+            $or: [{
+                userId: userId
+            }, {
+                collaboratorIds: {
+                    $all: [userId]
+                }
+            }]
         }, {
-            collaboratorIds: {
-                $all: [userId]
+            state: {
+                $ne: 1
             }
         }]
     });
@@ -17,11 +23,17 @@ Meteor.publish('stacks', function(userId) {
 
 Meteor.publish('tasks', function(userId) {
     stackIds = Stack.find({
-        $or: [{
-            userId: userId
+        $and: [{
+            $or: [{
+                userId: userId
+            }, {
+                collaboratorIds: {
+                    $all: [userId]
+                }
+            }]
         }, {
-            collaboratorIds: {
-                $all: [userId]
+            state: {
+                $ne: 1
             }
         }]
     }).fetch().map(function(stack) {
