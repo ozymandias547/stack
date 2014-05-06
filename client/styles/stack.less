@@ -11,10 +11,21 @@
 }
 
 .fbCollaboratorImg {
-    vertical-align: middle;
-    width: 35px;
-    height: 35px;
-    padding: 3px;
+    margin-top: 3px;
+    width: 29px;
+    height: 29px;
+    float: left;
+}
+
+.fbCollaboratorImg:last-child {
+    margin-right: 3px;
+}
+
+.fbOwnerImage {
+    width: 29px;
+    height: 29px;
+    margin: 3px;
+    float: left;
 }
 
 .StackHeader {
@@ -23,11 +34,8 @@
 }
 
 .StackTitle {
-    padding-left:2.5em;
-    padding-top:0.4em;
-    position: absolute;
-    top:0;
-    left:0;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
     .fontLargeBlack;
 }
 
@@ -75,6 +83,24 @@
 
 .StackRemove {
     float:right;
+}
+
+.StackShare .glyphContainer {
+    position: relative;
+    left: -2px;
+    top: 2px;
+}
+
+.StackShare .glyphContainer .glyphicon-plus-sign{
+    position: absolute; 
+    top: 5px;
+    left: 19px; 
+    font-size: 9px;
+}
+
+.StackRemove .glyphicon-trash {
+    left: -1px;
+    top: 3px;
 }
 
 .StackBody {

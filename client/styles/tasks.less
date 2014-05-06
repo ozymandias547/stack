@@ -9,9 +9,8 @@
 }
 
 .Task .TaskTitle {
+    padding: 0.5em;
     .fontMidBlack;
-    margin: 0.5em;
-    padding-right:40px;
 }
 
 .TaskAdd .form-group {
@@ -23,10 +22,6 @@
 }
 
 .Task .TaskComplete {
-    position: absolute;
-    right: 0;
-    top:0;
-    padding:0.5em;
     color: @black;
 }
 
@@ -34,17 +29,21 @@
     color: green;
 }
 
-.TaskStartStop {
-    cursor:pointer;
-    position:absolute;
-    top:0px;
-    right:20px;
-    padding:0.5em;
+.Task .buttonDockRight {
+    float: right;
 }
 
-.TaskComplete a, .TaskStartStop a {
+.Task .buttonDockRight .stackIcon{
+    float: left;
+    width: 21px;
+    height: 29px;
     color: @black;
 }
+
+.Task .buttonDockRight .stackIcon:hover {
+    color: @gray;
+}
+
 
 .TaskAdd {
     .fontMidWhite;
