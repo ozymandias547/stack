@@ -26,7 +26,6 @@ Template.task.events({
 
         $TaskTitle.removeClass('hidden');
         $TaskButtonDock.removeClass('hidden');
-        $TaskEditInput.val("");
         $TaskEditForm.addClass("hidden");
     },
 
