@@ -13,7 +13,7 @@ Template.TaskAddTpl.events({
         $addTaskButton.addClass("hidden");
         $TaskAddForm.removeClass("hidden");
 
-        $TaskAddForm.find("textarea").focus();
+        $TaskAddForm.find("input").focus();
     },
 
     "click .TaskAddSubmit": function(event, template) {

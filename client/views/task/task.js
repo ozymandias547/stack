@@ -1,4 +1,45 @@
 Template.task.events({
+    "click .TaskEditButton": function(event, template) {
+        var $TaskTitle = $(template.find(".TaskTitle"));
+        var $TaskButtonDock = $(template.find(".buttonDockRight"));
+        var $TaskEditForm = $(template.find(".TaskEditForm"));
+
+        $TaskTitle.addClass("hidden");
+        $TaskButtonDock.addClass("hidden");
+        $TaskEditForm.removeClass("hidden");
+
+        $TaskEditForm.find("input").focus();
+    },
+    "click .TaskEditSubmit": function(event, template) {
+        var $TaskTitle = $(template.find(".TaskTitle"));
+        var $TaskButtonDock = $(template.find(".buttonDockRight"));
+        var $TaskEditForm = $(template.find(".TaskEditForm"));
+        var $TaskEditInput = $(template.find('input'))
+
+        Task.update({
+            _id: this._id
+        }, {
+            $set: {
+                name: $TaskEditInput.val()
+            }
+        });
+
+        $TaskTitle.removeClass('hidden');
+        $TaskButtonDock.removeClass('hidden');
+        $TaskEditInput.val("");
+        $TaskEditForm.addClass("hidden");
+    },
+
+    "click .TaskEditCancel": function(event, template) {
+        var $TaskTitle = $(template.find(".TaskTitle"));
+        var $TaskEditButton = $(template.find(".TaskEditButton"));
+        var $TaskEditForm = $(template.find(".TaskEditForm"));
+
+        $(template.find('input')).val("");
+        $TaskTitle.removeClass("hidden");
+        $TaskEditButton.removeClass("hidden");
+        $TaskEditForm.addClass("hidden");
+    },
     "click .TaskComplete": function(event, template) {
         Task.remove({
             _id: this._id
