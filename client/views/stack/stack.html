@@ -3,23 +3,20 @@
     <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
       <img class="fbCollaboratorImg fbPhotoMini contributorImg" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
       <div class="StackTitle">
-        {{name}} {{priority}}
+        {{name}}
       </div>
       
       <div class="stackButtonDock">
-        <button class="noStyling stackIcon StackShare">
-          <div style="position:relative;">
-            <span class="glyphicon glyphicon glyphicon-user"></span>
-            <span class="glyphicon glyphicon-plus-sign" style="position: absolute; top:5px;left:19px; font-size:9px;"></span>
-          </div>
-        </button>
-        <button class="noStyling stackIcon StackRemove">
-          <span class="glyphicon glyphicon-trash"></span>
-        </button>
-        
         {{#each collaboratorsMap this}}
           {{>stackCollaborator this}}
         {{/each}}
+
+        <button class="noStyling stackIcon StackShare">
+          <div style="position:relative;">
+            <span class="glyphicon glyphicon glyphicon-user"></span>
+            <span class="glyphicon glyphicon-plus-sign" style="position: absolute; top:5px;left:13px; font-size:9px;"></span>
+          </div>
+        </button>
       </div>
       <div class="StackShareInput hidden">
         <input placeholder="Add contributor..." 
@@ -32,6 +29,7 @@
     {{/if}}
     <div class="StackBody">      
       {{>tasks this}}
+      {{>stackFooter this}}
     </div>  
   </div>
 </template>
