@@ -1,8 +1,12 @@
 @import "lib/lib";
 
+//-----------------------------------
+// Tags
+//-----------------------------------
 body {
     margin: 0px;
     padding: 0px;
+
     .fontMidBlack;
 
     background-image:url(http://wholles.com/wp-content/uploads/2013/06/Katputli-Sad-Dool-Wallpaper.jpg);
@@ -10,18 +14,15 @@ body {
     background-size: 100%;
 }
 
-input[type=text],
-textarea.form-control   {
+input[type=text], textarea.form-control   {
   height: 32px;
 }
 
-input[type=text]:hover,
-textarea.form-control:hover {
+input[type=text]:hover, textarea.form-control:hover {
   border: 1px solid #aaa;
 }
 
-input[type=text]:focus,
-textarea.form-control:focus {
+input[type=text]:focus, textarea.form-control:focus {
   border: 1px solid blue;
 }
 
@@ -29,8 +30,7 @@ textarea.form-control {
   max-width: 100%;
 }
 
-a.noLinkStyling:hover,
-a.noLinkStyling:focus {
+a.noLinkStyling:hover, a.noLinkStyling:focus {
   text-decoration: none;
 }
 
@@ -38,7 +38,9 @@ button {
     border : 0px;
 }
 
-/*Standard Icons (built for mobile)*/
+//-----------------------------------
+// Standard Icons (built for mobile)
+//-----------------------------------
 
 button.stackIcon {
   width: 25px;
@@ -61,9 +63,10 @@ button.stackIcon:focus {
   border: 1px solid gray;
 }
 
-
-/*End of standard icons*/
-
+//-----------------------------------
+// Global Class Selectors
+// Not OnMyStack-specific
+//-----------------------------------
 .handle {
   cursor:pointer;
 }
@@ -97,6 +100,10 @@ button.stackIcon:focus {
 .contentMargins:last-child {
   margin-bottom: 200px;
 }
+
+//-----------------------------------
+// OnMyStack-specific Class Selectors
+//-----------------------------------
 
 .OnMyStackIconContainer {
   font-size:24px;
