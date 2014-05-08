@@ -21,14 +21,15 @@ Meteor.publish('stacks', function(userId) {
 
 });
 
-Meteor.publish('tasks', function(userId) {
-    stackIds = Stack.find({
+Meteor.publish('tasks', function() {
+    var self = this;
+    var stackIds = Stack.find({
         $and: [{
             $or: [{
-                userId: userId
+                userId: this.userId
             }, {
                 collaboratorIds: {
-                    $all: [userId]
+                    $all: [this.userId]
                 }
             }]
         }, {
@@ -66,7 +67,7 @@ Meteor.publish("userData", function() {
 
         stacks.observeChanges({
             changed: function(id, fields) {
-                console.log("id: ", id, "fields: ", fields);
+                // console.log("id: ", id, "fields: ", fields);
                 if (fields.collaboratorIds) {
                     for (var i = 0; i < fields.collaboratorIds.length; i++) {
                         var id = fields.collaboratorIds[i];

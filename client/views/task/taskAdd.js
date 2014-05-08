@@ -31,6 +31,10 @@ Template.TaskAddTpl.events({
 
         if (newPriority == -Infinity) newPriority = 0;
 
+        // Resubscribe to the tasks document in order to refresh the tasks. (see my note below)
+        Meteor.subscribe("tasks");
+
+        // Does this insert NOT invalidate the tasks publication???
         Task.insert({
             userId: Meteor.userId(),
             stackId: this._id,

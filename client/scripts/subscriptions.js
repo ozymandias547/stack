@@ -1,7 +1,7 @@
 Deps.autorun(function() {
     Meteor.subscribe("stacks", Meteor.userId());
 
-    Meteor.subscribe("tasks", Meteor.userId());
+    Meteor.subscribe("tasks");
 
     Meteor.subscribe("userConnections");
 
