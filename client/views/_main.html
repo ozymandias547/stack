@@ -1,6 +1,16 @@
-<template name='main'>
-  <div class="container-fluid">
-    {{> header}}
-    {{> stacks}}
-  </div>
+<template name='templateHeader'>
+	<div class="fullHeightContainer">
+		<div class="container-fluid">
+			{{> header}}
+			{{> yield}}
+		</div>
+	</div>
+</template>
+
+<template name='templateNoHeader'>
+	<div class="fullHeightContainer">
+		<div class="container-fluid">
+			{{> yield}}
+		</div>
+	</div>
 </template>

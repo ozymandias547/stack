@@ -4,7 +4,7 @@
       <img class="fbOwnerImage" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
       <div class="StackHeader">
         <div class="StackTitle">
-          {{name}}
+          <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
           <div class="StackEditButton">
             <span class="glyphicon glyphicon-pencil"></span>
           </div>

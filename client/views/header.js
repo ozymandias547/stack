@@ -17,5 +17,8 @@ Template.header.events({
         if (Session.get("isEditing"))  Session.set("isEditing", false)
         else Session.set("isEditing", true);
         
+    },
+    "click img" : function() {
+        Meteor.logout();
     }
 })

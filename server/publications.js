@@ -1,15 +1,15 @@
-Meteor.publish('stacks', function(userId) {
-    if (userId === undefined) {
+Meteor.publish('stacks', function() {
+    if (this.userId === undefined) {
         return null;
     }
 
     return Stack.find({
         $and: [{
             $or: [{
-                userId: userId
+                userId: this.userId
             }, {
                 collaboratorIds: {
-                    $all: [userId]
+                    $all: [this.userId]
                 }
             }]
         }, {
