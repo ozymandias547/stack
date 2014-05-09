@@ -13,14 +13,33 @@
     display: inline-block;
 }
 
-.fbCollaboratorImg {
+
+
+.stackCollaboratorContainer {
     margin-top: 3px;
     width: 29px;
     height: 29px;
     float: left;
+    display: inline-block;
+    position: relative;
 }
 
-.fbCollaboratorImg:last-child {
+.stackCollaboratorContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.stackCollaboratorContainer .dropdown-menu {
+    min-width: 50px;
+    text-align: left;
+}
+
+.stackCollaboratorContainer .dropdown-menu > li > a {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.stackCollaboratorContainer:last-child {
     margin-right: 3px;
 }
 

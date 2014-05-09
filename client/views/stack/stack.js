@@ -10,6 +10,10 @@ Template.stack.helpers({
     }
 });
 
+Template.stack.rendered = function() {
+    $('.stackPopover').popover()
+}
+
 Template.stack.events({
     "click .StackRemove": function(event, template) {
         var isSure = confirm("Are you sure you would like to remove this stack?");
