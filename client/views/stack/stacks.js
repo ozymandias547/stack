@@ -1,3 +1,10 @@
+function buildRegExpFromUserFilter(filter) {
+    if (filter) {
+        return new RegExp('(' + filter + ')', 'gi');
+    }
+    return undefined;
+}
+
 function getTasksFor(stackId) {
     var tasks = Task.find({
         stackId: stackId,
@@ -10,15 +17,19 @@ function getTasksFor(stackId) {
         }
     }).fetch();
 
-    var regExpFilter = Session.get('regExpFilter') ? new RegExp(Session.get('regExpFilter')) : undefined;
+    var regExpFilter = buildRegExpFromUserFilter(Session.get('regExpFilter'));
     var result = [];
 
     // Linkify and filter by regexp
     for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i];
         if (regExpFilter !== undefined && !regExpFilter.test(JSON.stringify(tasks[i])))
             continue;
 
-        result.push(tasks[i]);
+        if (regExpFilter)
+            task = JSON.parse(JSON.stringify(task).replace(regExpFilter, '<div class=\'filterHighlight\'>$1</div>'));
+
+        result.push(task);
 
         tasks[i].name = linkify(tasks[i].name, {
             callback: function(name, href) {
@@ -35,7 +46,7 @@ function getTasksFor(stackId) {
 
 Template.stacks.helpers({
     stacks: function() {
-        var regExpFilter = Session.get('regExpFilter') ? new RegExp(Session.get('regExpFilter')) : undefined;
+        var regExpFilter = buildRegExpFromUserFilter(Session.get('regExpFilter'));
 
         return Stack.find({}, {
             sort: {

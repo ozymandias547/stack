@@ -4,7 +4,7 @@ Template.search.events({
             Session.set('regExpFilter', undefined);
             Session.set('stackIdFilter', undefined);
         } else {
-            Session.set('regExpFilter', '.*' + event.target.value + '.*');
+            Session.set('regExpFilter', event.target.value);
         }
     }
 });
