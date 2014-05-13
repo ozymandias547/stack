@@ -1,13 +1,10 @@
-
-Template.search.helpers({
-	"stackers" : function() {
-		if (Session.get("fbFriendsAll"))
-			return Session.get("fbFriendsByName");
-	}
-})
-
-Template.search.rendered = function() {
-	Meteor.typeahead.inject();
-}
-
-
+Template.search.events({
+    "keyup .SearchInput": function(event, template) {
+        if (event.target.value == '' || event.target.value == undefined) {
+            Session.set('regExpFilter', undefined);
+            Session.set('stackIdFilter', undefined);
+        } else {
+            Session.set('regExpFilter', '.*' + event.target.value + '.*');
+        }
+    }
+});

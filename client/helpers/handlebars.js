@@ -1,4 +1,3 @@
-
 Handlebars.registerHelper('fbFriends',
     function() {
         return Session.get('fbFriendsAll');
@@ -19,7 +18,7 @@ Handlebars.registerHelper('$userImage', function() {
 });
 
 Handlebars.registerHelper('$userName', function() {
-    return Meteor.user().profile.name;
+    return Meteor.user() ? Meteor.user().profile.name : 'Loading';
 });
 
 Handlebars.registerHelper('$userNameByUserId',

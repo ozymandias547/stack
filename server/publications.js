@@ -1,15 +1,11 @@
-Meteor.publish('stacks', function() {
-    if (this.userId === undefined) {
-        return null;
-    }
-
+function userStackQuery(userId) {
     return Stack.find({
         $and: [{
             $or: [{
-                userId: this.userId
+                userId: userId
             }, {
                 collaboratorIds: {
-                    $all: [this.userId]
+                    $all: [userId]
                 }
             }]
         }, {
@@ -18,26 +14,20 @@ Meteor.publish('stacks', function() {
             }
         }]
     });
+}
 
+Meteor.publish('stacks', function() {
+    if (this.userId === undefined)
+        return null;
+
+    return userStackQuery(this.userId);
 });
 
 Meteor.publish('tasks', function() {
-    var self = this;
-    var stackIds = Stack.find({
-        $and: [{
-            $or: [{
-                userId: this.userId
-            }, {
-                collaboratorIds: {
-                    $all: [this.userId]
-                }
-            }]
-        }, {
-            state: {
-                $ne: 1
-            }
-        }]
-    }).fetch().map(function(stack) {
+    if (this.userId === undefined)
+        return null;
+
+    var stackIds = userStackQuery(this.userId).fetch().map(function(stack) {
         return stack._id
     });
 

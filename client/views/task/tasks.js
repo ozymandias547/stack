@@ -1,28 +1,3 @@
-Template.tasks.helpers({
-    tasks: function() {
-        var tasks = Task.find({
-            stackId: this._id,
-            state: {
-                $ne: 1
-            }
-        }, {
-            sort: {
-                priority: 1
-            }
-        }).fetch();
-
-        for (var i = 0; i < tasks.length; i++) {
-            tasks[i].name = linkify(tasks[i].name, {
-                callback: function(name, href) {
-                    return href ? '<a href=\'' + href + '\' target=\'_blank\'>' + name + '</a>' : name;
-                }
-            });
-        }
-
-        return tasks;
-    }
-});
-
 SimpleRationalRanks = {
     beforeFirst: function(firstRank) {
         return firstRank - 1;
