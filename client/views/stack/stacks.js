@@ -27,7 +27,10 @@ function getTasksFor(stackId) {
         });
     }
 
-    return result;
+    return {
+        all: tasks,
+        filtered: result
+    };
 };
 
 Template.stacks.helpers({
@@ -40,7 +43,8 @@ Template.stacks.helpers({
             }
         }).fetch().filter(function(stack) {
             var stackMatch = regExpFilter && regExpFilter.test(JSON.stringify(stack));
-            stack.tasks = getTasksFor(stack._id);
+            var tasks = getTasksFor(stack._id);
+            stack.tasks = stackMatch ? tasks.all : tasks.filtered;
             return !regExpFilter || stack.tasks.length > 0 || stackMatch;
         });
     }
