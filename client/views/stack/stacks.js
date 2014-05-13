@@ -41,7 +41,7 @@ Template.stacks.helpers({
         }).fetch().filter(function(stack) {
             var stackMatch = regExpFilter && regExpFilter.test(JSON.stringify(stack));
             stack.tasks = getTasksFor(stack._id);
-            return stack.tasks.length > 0 || stackMatch;
+            return !regExpFilter || stack.tasks.length > 0 || stackMatch;
         });
     }
 });

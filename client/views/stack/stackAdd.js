@@ -24,6 +24,7 @@ Template.stackAdd.events({
                 }
             }).fetch()[0].priority;
 
+            console.log("adding!");
             Stack.insert({
                 userId: Meteor.userId(),
                 name: $addStackNameInput.val(),
