@@ -1,52 +1,77 @@
 @import "lib/lib";
 
+
+//-----------------------------------
+// Stack Global
+//-----------------------------------
+
 .Stack {
     background-color: @c5;
     position:relative;
 }
 
-.Stack .stackButtonDock {
-    position:absolute;
-    right:0;
-    top:0;
-    text-align:right;
-    display: inline-block;
-}
+//-----------------------------------
+// Stack Header Bar
+//-----------------------------------
 
-
-
-.stackCollaboratorContainer {
-    margin-top: 3px;
-    width: 29px;
-    height: 29px;
-    float: left;
-    display: inline-block;
+.StackHeader {
+    background-color: @c4;
+    .fontLargeBlack;
     position: relative;
 }
+    
+    .StackHeader .stackButtonDock {
+        position:absolute;
+        right:0;
+        top:0;
+        text-align:right;
+        display: inline-block;
+    }
 
-.stackCollaboratorContainer img {
-    width: 100%;
-    height: 100%;
+    .StackHeader .stackCollaboratorContainer {
+        margin-top: 3px;
+        width: 29px;
+        height: 29px;
+        float: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    .StackHeader .stackCollaboratorContainer:last-child {
+        margin-right: 3px;
+    }
+
+    .StackHeader .stackCollaboratorContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .StackHeader .fbOwnerImage {
+        width: 29px;
+        height: 29px;
+        margin: 3px;
+        float: left;
+    }
+
+//-----------------------------------
+// Stack Body
+//-----------------------------------
+
+.StackBody {
+    padding: 0.5em 0.5em 0.1em 0.5em;
 }
 
-.stackCollaboratorContainer .dropdown-menu {
-    min-width: 50px;
-    text-align: left;
-    padding-top: 0;
-    padding-bottom: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-}
 
-.stackCollaboratorContainer .dropdown-menu > li > a {
-    padding: 5px;
-    font-size: 12px;
-}
 
-.stackCollaboratorContainer:last-child {
-    margin-right: 3px;
-}
+
+
+
+
+
+
+
+
+
 
 .fbOwnerImage {
     width: 29px;
@@ -55,10 +80,7 @@
     float: left;
 }
 
-.StackHeader {
-    background-color: @c4;
-    .fontLargeBlack;
-}
+
 
 .StackTitle {
     padding-left: 0.5em;
@@ -67,9 +89,6 @@
     display:inline-block;
 }
 
-.StackHeader {
-    
-}
 
 .StackDescription {
     padding-left:0.5em;
@@ -88,7 +107,7 @@
 }
 
 .StackAdd {
-    margin-left:70px;
+    margin-left:80px;
     cursor: pointer;
     background-color: @c4;
     color: white;
@@ -131,9 +150,7 @@
     top: 3px;
 }
 
-.StackBody {
-    padding: 0.5em 0.5em 0.1em 0.5em;
-}
+
 
 
 .StackAdd input {

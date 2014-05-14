@@ -19,6 +19,7 @@ Template.header.events({
         
     },
     "click img" : function() {
+        // Router.go("login")
         Meteor.logout();
     }
 })

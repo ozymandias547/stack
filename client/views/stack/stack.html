@@ -1,8 +1,14 @@
 <template name="stack">
-  <div class="Stack contentMargins" id="{{_id}}">
+  <div class="Stack content" id="{{_id}}">
     <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
-      <img class="fbOwnerImage" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}"/>
-      <div class="StackHeader">
+      
+      <img class="fbOwnerImage myDropdown" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}" data-toggle="dropdown" />
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <li><a role="menuitem" class="viewStacks" tabindex="-1" href="#">Stacks</a></li>
+          <li><a role="menuitem" class="viewFacebook" tabindex="-1" href="#">Facebook Profile</a></li>
+      </ul>
+
+      <div>
         <div class="StackTitle">
           <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
           <div class="StackEditButton">
@@ -47,7 +53,7 @@
       <div class="StackDescription">{{description}}</div>
     {{/if}}
     <div class="StackBody">      
-      {{>tasks this}}
+      {{>tasks}}
       {{>stackFooter this}}
     </div>  
   </div>

@@ -1,16 +1,12 @@
 <template name='templateHeader'>
-	<div class="fullHeightContainer">
-		<div class="container-fluid">
-			{{> header}}
-			{{> yield}}
-		</div>
+	<div class="container-fluid">
+		{{> header}}
+		{{> yield}}
 	</div>
 </template>
 
 <template name='templateNoHeader'>
-	<div class="fullHeightContainer">
-		<div class="container-fluid">
-			{{> yield}}
-		</div>
+	<div class="container-fluid">
+		{{> yield}}
 	</div>
 </template>

@@ -15,6 +15,10 @@ body {
 }
 
 input[type=text], textarea.form-control   {
+  border-radius: @inputBorderRadius;
+}
+
+input[type=text] {
   height: 32px;
 }
 
@@ -36,6 +40,25 @@ a.noLinkStyling:hover, a.noLinkStyling:focus {
 
 button {
     border : 0px;
+}
+
+//-----------------------------------
+// Dropdown menu styles
+//-----------------------------------
+
+.container-fluid .dropdown-menu {
+    min-width: 50px;
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.container-fluid .dropdown-menu > li > a {
+    padding: 5px;
+    font-size: 12px;
 }
 
 //-----------------------------------
@@ -67,6 +90,7 @@ button.stackIcon:focus {
 // Global Class Selectors
 // Not OnMyStack-specific
 //-----------------------------------
+
 .handle {
   cursor:pointer;
 }
@@ -80,24 +104,14 @@ button.stackIcon:focus {
 }
 
 .container-fluid {
-    margin-top:1em;
-    margin-left:5%;
-    margin-right:5%;
-    max-width:550px;
+    max-width:600px;
 }
 
-.header {
-  width:100%;
-  padding-top:0.5em;
-  padding-bottom:0.5em;
-  position:relative;
-}
-
-.contentMargins {
+.content {
   margin-bottom: 0.5em;
 }
 
-.contentMargins:last-child {
+.content:last-child {
   margin-bottom: 200px;
 }
 
@@ -130,8 +144,8 @@ button.stackIcon:focus {
 
 .UserImage {
   cursor:pointer;
-  width:60px;
-  height:60px;
+  width:75px;
+  height:75px;
   float:left;
 }
 

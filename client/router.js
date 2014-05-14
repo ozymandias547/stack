@@ -2,12 +2,21 @@ Router.map(function() {
     
     this.route('home', {
         path: '/',
-        action: function() {
-            
-            this.render(!Meteor.user() ? 'login' : 'stacks');
+        onBeforeAction: function() {
+            if ( Meteor.userId() ) Router.go("/user/" + Meteor.userId())
         },
-        layoutTemplate: 'templateHeader',
-        template: 'stacks'
+        layoutTemplate: 'templateNoHeader',
+        template: 'login'
+    });
+
+    this.route('login', {
+        path: '/login',
+        onBeforeAction: function() {
+            if ( Meteor.userId() ) Router.go("/user/" + Meteor.userId())
+        },
+        action: function() {console.log("login action"); this.render()},
+        template: "login",
+        layoutTemplate: "templateNoHeader"
     });
 
     this.route('stackSingle', {
@@ -23,5 +32,14 @@ Router.map(function() {
         },
         layoutTemplate: 'templateNoHeader',
     	template: 'stackSingle'
+    });
+
+    this.route('userSingle', {
+        path: '/user/:_id',
+        layoutTemplate: 'templateHeader',
+        onBeforeAction: function() {
+            if ( !Meteor.userId() ) Router.go("/login")
+        },
+        template: 'stacks'
     })
 });
