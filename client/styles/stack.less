@@ -10,6 +10,12 @@
     position:relative;
 }
 
+.Stack .stack-sort-highlight {
+    height: 100px;
+    background-color: red;
+    margin-bottom: 0.5em;
+}
+
 //-----------------------------------
 // Stack Header Bar
 //-----------------------------------
@@ -20,6 +26,10 @@
     position: relative;
 }
     
+    .StackHeader a {
+       color: @black; 
+    }
+
     .StackHeader .stackButtonDock {
         position:absolute;
         right:0;
@@ -41,9 +51,11 @@
         margin-right: 3px;
     }
 
-    .StackHeader .stackCollaboratorContainer img {
+    .StackHeader .fbCollaboratorImg  {
         width: 100%;
         height: 100%;
+        padding: 0.1em;
+        cursor: pointer;
     }
 
     .StackHeader .fbOwnerImage {
@@ -52,6 +64,87 @@
         margin: 3px;
         float: left;
     }
+
+    .StackHeader .StackTitle {
+        padding: 0.5em 0 0.5em 0.5em;
+        .fontLargeBlack;
+        display:inline-block;
+    }
+
+    .StackHeader .StackEditForm {
+        padding: 0 0.5em 0.5em 0.5em;
+    }
+
+        .StackHeader .StackEditForm input,
+        .StackHeader .StackEditForm textarea  {
+            margin-bottom: 0.5em;
+        }
+
+    .StackHeader .StackShare,
+    .StackHeader .StackRemove {
+        cursor:pointer;
+        display:inline;
+        float: none;
+    }
+
+        .StackHeader .StackRemove .glyphicon-trash {
+            left: -1px;
+            top: 3px;
+        }
+
+        .StackHeader .StackShare .glyphContainer {
+            position: relative;
+            left: -2px;
+            top: 2px;
+        }
+
+    .StackHeader .glyphicon-plus-sign{
+        position: absolute; 
+        top: 5px;
+        left: 19px; 
+        font-size: 9px;
+    }
+
+    .StackHeader .AddStackInputs {
+        padding: 0.5em;
+        position:relative;
+        margin-right:4em;
+        margin-left:4em;
+    }
+
+    .StackHeader .StackAddSubmit {
+        width:80px;   
+    }
+
+    .StackHeader .StackAddCancel {
+        width:80px;   
+    }
+
+    .StackHeader .StackEditButton {
+        cursor:pointer;
+        font-size:12px;
+        color:#666666;
+        display:inline;
+        margin-left:0.5em;
+    }
+
+    .StackHeader .StackShareInput {
+        position:absolute;
+        right:0.5em;
+        top: 0.5em;
+        .fontMidBlack;
+    }
+
+
+//-----------------------------------
+// Stack Description
+//-----------------------------------
+
+.StackDescription {
+    padding-left:0.5em;
+    padding-top:0.5em;  
+    .fontMidBlack;  
+}
 
 //-----------------------------------
 // Stack Body
@@ -73,124 +166,9 @@
 
 
 
-.fbOwnerImage {
-    width: 29px;
-    height: 29px;
-    margin: 3px;
-    float: left;
-}
-
-
-
-.StackTitle {
-    padding-left: 0.5em;
-    padding-top: 0.3em;
-    .fontLargeBlack;
-    display:inline-block;
-}
-
-
-.StackDescription {
-    padding-left:0.5em;
-    padding-top:0.5em;  
-    .fontMidBlack;  
-}
-
-.StackHeader .StackName {
-    font-size: 9px;
-}
-
-.stack-sort-highlight {
-    height: 100px;
-    background-color: red;
-    margin-bottom: 0.5em;
-}
-
-.StackAdd {
-    margin-left:80px;
-    cursor: pointer;
-    background-color: @c4;
-    color: white;
-    z-index:1000;
-}
-
-.StackAdd .form-group {
-    margin-bottom: 0.5em;
-}
-
-.StackAdd .StackAddInputs {
-    margin: 0.5em;
-}
-
-.StackHeader a {
-   color: @black; 
-}
-
-.StackShare, .StackRemove {
-    cursor:pointer;
-    display:inline;
-    float: none;
-}
-
-.StackShare .glyphContainer {
-    position: relative;
-    left: -2px;
-    top: 2px;
-}
-
-.StackShare .glyphContainer .glyphicon-plus-sign{
-    position: absolute; 
-    top: 5px;
-    left: 19px; 
-    font-size: 9px;
-}
-
-.StackRemove .glyphicon-trash {
-    left: -1px;
-    top: 3px;
-}
 
 
 
 
-.StackAdd input {
-    color: @black;
-}
 
-.stackInitAdd {
-    .fontLargeWhite;
-}
 
-.stackInitAdd a {
-    color: @white; 
-}
-
-.StackShareInput {
-    position:absolute;
-    right:0.5em;
-    top: 0.5em;
-    .fontMidBlack;
-}
-
-.AddStackInputs {
-  padding: 0.5em;
-  position:relative;
-  margin-right:4em;
-  margin-left:4em;
-}
-
-.StackAddSubmit {
-    width:80px;   
-}
-
-.StackAddCancel {
-    width:80px;   
-}
-
-.StackEditButton {
-    cursor:pointer;
-    font-size:12px;
-    color:#666666;
-    display:inline;
-    margin-left:0.5em;
-}

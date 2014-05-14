@@ -7,7 +7,6 @@ Template.stack.events({
         $(template.find('input')).val(this.name);
         $(template.find('textarea')).val(this.description);
 
-        $StackTitle.addClass('hidden');
         $StackDescription.addClass('hidden');
         $StackEditForm.removeClass('hidden');
 
@@ -29,7 +28,6 @@ Template.stack.events({
             }
         });
 
-        $StackTitle.removeClass('hidden');
         $StackDescription.removeClass('hidden');
         $StackEditForm.addClass("hidden");
     },
@@ -40,7 +38,6 @@ Template.stack.events({
 
         $(template.find('input')).val(this.name);
         $(template.find('textarea')).val(this.description);
-        $StackTitle.removeClass("hidden");
         $StackEditForm.addClass("hidden");
     }
 });

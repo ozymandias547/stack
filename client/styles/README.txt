@@ -1,6 +1,6 @@
 CSS guidelines:
 
-1.  Each template will have it's own corresponding CSS file.
+1.  Most large templates will have a corresponding CSS file. 
 2.  Each CSS file will be sectioned using the following syntax:
 
 	//-----------------------------------

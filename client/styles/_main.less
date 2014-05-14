@@ -1,8 +1,23 @@
 @import "lib/lib";
 
 //-----------------------------------
+// WHERE THE HECK DO I PUT THIS section... (to be sorted later)
+//-----------------------------------
+
+  .uncollapse-margins:before,
+  .uncollapse-margins:after
+  {
+      content: "\00a0"; /* No-break space character */
+      display: block;
+      overflow: hidden;
+      height: 0;
+  }
+
+
+//-----------------------------------
 // Tags
 //-----------------------------------
+
 body {
     margin: 0px;
     padding: 0px;
@@ -42,6 +57,15 @@ button {
     border : 0px;
 }
 
+//-----------------------------------
+// Global form styles
+//-----------------------------------
+
+.form-buttons {
+  float:right;
+  margin-bottom:0.5em;
+}
+  
 //-----------------------------------
 // Dropdown menu styles
 //-----------------------------------
@@ -105,10 +129,11 @@ button.stackIcon:focus {
 
 .container-fluid {
     max-width:600px;
+    padding-top: 15px;
 }
 
 .content {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 
 .content:last-child {
@@ -153,4 +178,41 @@ button.stackIcon:focus {
   display:inline-block;
   padding:0.1em;
   background-color:#FFFF00;
+}
+
+//-----------------------------------
+// Autocomplete dropdown styling
+//-----------------------------------
+
+.tt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-clip: padding-box;
+}
+.tt-suggestion > p {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+.tt-suggestion > p:hover, .tt-suggestion > p:focus, .tt-suggestion.tt-cursor p {
+    color: #ffffff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
 }

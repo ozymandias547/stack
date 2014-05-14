@@ -8,39 +8,31 @@
           <li><a role="menuitem" class="viewFacebook" tabindex="-1" href="#">Facebook Profile</a></li>
       </ul>
 
-      <div>
-        <div class="StackTitle">
-          <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
-          <div class="StackEditButton">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </div>
-        </div>  
-        <form class='StackEditForm hidden'>
-          <div class="form-group">
-              <input type="text" class="form-control StackEditInput" value="{{name}}"/>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control StackEditDescInput" rows="3" text="{{description}}"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="button" class="btn btn-default btn-sm StackEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
-            <button type="button" class="btn btn-default btn-sm StackEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
-            <button type="button" class="btn btn-default btn-sm StackRemove"><span class="glyphicon glyphicon-trash"></span></button>
-          </div>
-        </form>
-
-        <div class="stackButtonDock">
-          {{#each collaboratorsMap this}}
-            {{>stackCollaborator this}}
-          {{/each}}
-
-          <button class="noStyling stackIcon StackShare">
-            <div class="glyphContainer">
-              <span class="glyphicon glyphicon glyphicon-user"></span>
-              <span class="glyphicon glyphicon-plus-sign" style="position: absolute; top:5px;left:13px; font-size:9px;"></span>
-            </div>
-          </button>
+      <div class="StackTitle">
+        <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
+        <div class="StackEditButton">
+          <span class="glyphicon glyphicon-pencil"></span>
         </div>
+      </div>  
+      <div class='StackEditForm hidden'>
+          <input type="text" class="form-control StackEditInput" value="{{name}}"/>
+          <textarea class="form-control StackEditDescInput" rows="3" text="{{description}}"></textarea>
+          <button type="button" class="btn btn-default btn-sm StackEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
+          <button type="button" class="btn btn-default btn-sm StackEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
+          <button type="button" class="btn btn-default btn-sm StackRemove"><span class="glyphicon glyphicon-trash"></span></button>
+      </div>
+
+      <div class="stackButtonDock">
+        {{#each collaboratorsMap this}}
+          {{>stackCollaborator this}}
+        {{/each}}
+
+        <button class="noStyling stackIcon StackShare">
+          <div class="glyphContainer">
+            <span class="glyphicon glyphicon glyphicon-user"></span>
+            <span class="glyphicon glyphicon-plus-sign" style="position: absolute; top:5px;left:13px; font-size:9px;"></span>
+          </div>
+        </button>
       </div>
       
       <div class="StackShareInput hidden">
@@ -54,7 +46,9 @@
     {{/if}}
     <div class="StackBody">      
       {{>tasks}}
-      {{>stackFooter this}}
     </div>  
+    <div class="StackFooter uncollapse-margins">
+      {{> TaskAddTpl}}
+    </div>
   </div>
 </template>
