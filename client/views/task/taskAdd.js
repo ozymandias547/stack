@@ -42,7 +42,7 @@ Template.TaskAddTpl.events({
             priority: newPriority
         });
 
-        $(template.find('textarea')).text("");
+        $(template.find('textarea')).val('');
         $addTaskButton.removeClass("hidden");
         $TaskAddForm.addClass("hidden");
 
