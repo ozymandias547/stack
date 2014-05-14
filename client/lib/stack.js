@@ -26,11 +26,11 @@ getTasksFor = function(stackId) {
 
         result.push(task);
 
-        tasks[i].name = linkify(tasks[i].name, {
-            callback: function(name, href) {
-                return href ? ('<a href=\'' + href + '\' target=\'_blank\'>' + name + '</a>') : name;
-            }
-        });
+        // tasks[i].name = linkify(tasks[i].name, {
+        //     callback: function(name, href) {
+        //         return href ? ('<a href=\'' + href + '\' target=\'_blank\'>' + name + '</a>') : name;
+        //     }
+        // });
     }
 
     return {
