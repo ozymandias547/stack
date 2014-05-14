@@ -1,14 +1,12 @@
 <template name="TaskAddTpl">
     <div class="TaskAdd">
-    	<div class="TaskAddButton"><a href="" class="glyphicon glyphicon-plus-sign"></a></div>
+    	<div class="TaskAddButton">
+    		<button class="stackIcon"><span class="glyphicon glyphicon-plus-sign"></span></button>
+    	</div>
     	<div class='TaskAddForm hidden'>
-	        <div class="form-group">
-	          	<input type="text" class="form-control taskAddDescInput" placeholder="Task..."/>
-	        </div>
-	        <div class="form-group">
-		        <button type="button" class="btn btn-default btn-sm TaskAddSubmit"><span class="glyphicon glyphicon-ok"></span></button>
-		        <button type="button" class="btn btn-default btn-sm TaskAddCancel"><span class="glyphicon glyphicon-remove"></span></button>
-	        </div>
+          	<textarea class="form-control taskAddDescInput" ></textarea>
+	        <button type="button" class="stackIcon TaskAddSubmit"><span class="glyphicon glyphicon-ok"></span></button>
+	        <button type="button" class="stackIcon TaskAddCancel"><span class="glyphicon glyphicon-remove"></span></button>
 	    </div>
     </div>
 </template>

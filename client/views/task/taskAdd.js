@@ -13,7 +13,7 @@ Template.TaskAddTpl.events({
         $addTaskButton.addClass("hidden");
         $TaskAddForm.removeClass("hidden");
 
-        $TaskAddForm.find("input").focus();
+        $TaskAddForm.find("textarea").focus();
     },
 
     "click .TaskAddSubmit": function(event, template) {
@@ -21,7 +21,7 @@ Template.TaskAddTpl.events({
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
         var $TaskAddButton = $(template.find(".TaskAddButton"));
-        var $TaskInput = $(template.find('input'))
+        var $TaskInput = $(template.find('textarea'))
 
         var newPriority = _.max(Task.find({
             stackId: this._id
@@ -42,7 +42,7 @@ Template.TaskAddTpl.events({
             priority: newPriority
         });
 
-        $(template.find('textarea')).val("");
+        $(template.find('textarea')).text("");
         $addTaskButton.removeClass("hidden");
         $TaskAddForm.addClass("hidden");
 

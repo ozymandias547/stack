@@ -8,13 +8,13 @@ Template.task.events({
         $TaskButtonDock.addClass("hidden");
         $TaskEditForm.removeClass("hidden");
 
-        $TaskEditForm.find("input").focus();
+        $TaskEditForm.find("textarea").focus();
     },
     "click .TaskEditSubmit": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
         var $TaskButtonDock = $(template.find(".buttonDockRight"));
         var $TaskEditForm = $(template.find(".TaskEditForm"));
-        var $TaskEditInput = $(template.find('input'))
+        var $TaskEditInput = $(template.find('textarea'))
 
         Task.update({
             _id: this._id
@@ -34,7 +34,7 @@ Template.task.events({
         var $TaskEditButton = $(template.find(".TaskEditButton"));
         var $TaskEditForm = $(template.find(".TaskEditForm"));
 
-        $(template.find('input')).val("");
+        $(template.find('textarea')).val("");
         $TaskTitle.removeClass("hidden");
         $TaskEditButton.removeClass("hidden");
         $TaskEditForm.addClass("hidden");

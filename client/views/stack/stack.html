@@ -10,16 +10,16 @@
 
       <div class="StackTitle">
         <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
-        <div class="StackEditButton">
+        <button class="stackIcon StackEditButton">
           <span class="glyphicon glyphicon-pencil"></span>
-        </div>
+        </button>
       </div>  
       <div class='StackEditForm hidden'>
           <input type="text" class="form-control StackEditInput" value="{{name}}"/>
           <textarea class="form-control StackEditDescInput" rows="3" text="{{description}}"></textarea>
-          <button type="button" class="btn btn-default btn-sm StackEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
-          <button type="button" class="btn btn-default btn-sm StackEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
-          <button type="button" class="btn btn-default btn-sm StackRemove"><span class="glyphicon glyphicon-trash"></span></button>
+          <button type="button" class="stackIcon StackEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
+          <button type="button" class="stackIcon StackEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
+          <button type="button" class="stackIcon StackRemove"><span class="glyphicon glyphicon-trash"></span></button>
       </div>
 
       <div class="stackButtonDock">

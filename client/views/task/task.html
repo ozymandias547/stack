@@ -1,7 +1,7 @@
 <template name="task">
   <div class="Task ui-state-default clearfix">
     <div class="buttonDockRight">
-      <button id="stackRowAddInputButton" class="noStyling stackIcon TaskComplete">
+      <button id="stackRowAddInputButton" class="stackIcon TaskComplete">
         <span class="glyphicon glyphicon-ok-circle"></span>
       </button>
     </div>
@@ -15,10 +15,9 @@
       </div>
     </div>
     <form class='TaskEditForm hidden'>
-            <input type="text" class="form-control TaskEditDescInput" value="{{name}}"/>
-          <button type="button" class="btn btn-default btn-sm TaskEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
-          <button type="button" class="btn btn-default btn-sm TaskEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
-        
+      <textarea class="form-control TaskEditDescInput">{{name}}</textarea>
+      <button type="button" class="stackIcon TaskEditSubmit"><span class="glyphicon glyphicon-ok"></span></button>
+      <button type="button" class="stackIcon TaskEditCancel"><span class="glyphicon glyphicon-remove"></span></button>
     </form>
   </div>
 </template>
