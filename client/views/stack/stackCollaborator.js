@@ -1,5 +1,5 @@
 Template.stackCollaborator.events({
-    "click .removeCollaborator": function(event, template) {
+    "mousedown .removeCollaborator": function(event, template) {
         this.stack.collaboratorIds.splice(this.stack.collaboratorIds.indexOf(this.id), 1);
         Stack.update({
             _id: this.stack._id,
@@ -9,10 +9,10 @@ Template.stackCollaborator.events({
             }
         });
     },
-    "click .viewStacks": function(event, template) {
+    "mousedown .viewStacks": function(event, template) {
         // TODO: Change route to user stack page
     },
-    "click .viewFacebook": function(event, template) {
+    "mousedown .viewFacebook": function(event, template) {
         // TODO: Change route to user facebook
     }
 

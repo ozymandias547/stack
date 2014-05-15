@@ -15,7 +15,7 @@ Template.stack.rendered = function() {
 }
 
 Template.stack.events({
-    "click .StackRemove": function(event, template) {
+    "mousedown .StackRemove": function(event, template) {
         var isSure = confirm("Are you sure you would like to remove this stack?");
         if (isSure)
             Stack.update({
@@ -26,7 +26,7 @@ Template.stack.events({
                 }
             });
     },
-    "click .StackShare": function(event, template) {
+    "mousedown .StackShare": function(event, template) {
         var $stackShareButton = $(template.find(".StackShare")),
             $stackShareInputContainer = $(template.find(".StackShareInput")),
             $stackShareInput = $stackShareInputContainer.find("input");
@@ -41,7 +41,7 @@ Template.stack.events({
         $stackShareInputContainer.find(".tt-input").focus();
     },
 
-    "keydown .StackShareInput": function(event, template) {
+    "mousedown .StackShareInput": function(event, template) {
         var $stackShareButton = $(template.find(".StackShare")),
             $stackShareInputContainer = $(template.find(".StackShareInput")),
             $stackShareInput = $stackShareInputContainer.find(".tt-input");

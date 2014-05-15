@@ -1,5 +1,5 @@
 Template.settings.events({
-	".logout click" : function() {
+	".logout mousedown" : function() {
 		console.log("hi");
 		// Meteor.logout();
 	}

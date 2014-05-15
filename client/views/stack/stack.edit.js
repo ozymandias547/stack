@@ -1,18 +1,29 @@
 Template.stack.events({
-    "click .StackEditButton": function(event, template) {
+    "mousedown .StackEditButton": function(event, template) {
+        
         var $StackTitle = $(template.find('.StackTitle'));
         var $StackDescription = $(template.find('.StackDescription'));
         var $StackEditForm = $(template.find('.StackEditForm'));
 
-        $(template.find('input')).val(this.name);
-        $(template.find('textarea')).val(this.description);
+        if ($StackEditForm.is(":visible")) {
+            
+            $(template.find('input')).val(this.name);
+            $(template.find('textarea')).val(this.description);
+            $StackEditForm.addClass("hidden");
+        
+        } else {
 
-        $StackDescription.addClass('hidden');
-        $StackEditForm.removeClass('hidden');
+            $(template.find('input')).val(this.name);
+            $(template.find('textarea')).val(this.description);
 
-        $StackEditForm.find('input').focus();
+            $StackDescription.addClass('hidden');
+            $StackEditForm.removeClass('hidden');
+
+            $StackEditForm.find('input').focus();
+        }
+       
     },
-    "click .StackEditSubmit": function(event, template) {
+    "mousedown .StackEditSubmit": function(event, template) {
         var $StackTitle = $(template.find('.StackTitle'));
         var $StackDescription = $(template.find('.StackDescription'));
         var $StackEditForm = $(template.find('.StackEditForm'));
@@ -32,7 +43,7 @@ Template.stack.events({
         $StackEditForm.addClass("hidden");
     },
 
-    "click .StackEditCancel": function(event, template) {
+    "mousedown .StackEditCancel": function(event, template) {
         var $StackTitle = $(template.find(".StackTitle"));
         var $StackEditForm = $(template.find(".StackEditForm"));
 

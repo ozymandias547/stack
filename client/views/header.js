@@ -12,13 +12,13 @@ Template.header.helpers({
 });
 
 Template.header.events({
-    "click .edit": function() {
+    "mousedown .edit": function() {
 
         if (Session.get("isEditing"))  Session.set("isEditing", false)
         else Session.set("isEditing", true);
         
     },
-    "click img" : function() {
+    "mousedown img" : function() {
         // Router.go("login")
         Meteor.logout();
     }

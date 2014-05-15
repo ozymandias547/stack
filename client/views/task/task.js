@@ -1,5 +1,5 @@
 Template.task.events({
-    "click .TaskEditButton": function(event, template) {
+    "mousedown .TaskEditButton": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
         var $TaskButtonDock = $(template.find(".buttonDockRight"));
         var $TaskEditForm = $(template.find(".TaskEditForm"));
@@ -12,7 +12,7 @@ Template.task.events({
         $TaskEditForm.find("textarea").focus();
 
     },
-    "click .TaskEditSubmit": function(event, template) {
+    "mousedown .TaskEditSubmit": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
         var $TaskButtonDock = $(template.find(".buttonDockRight"));
         var $TaskEditForm = $(template.find(".TaskEditForm"));
@@ -32,7 +32,7 @@ Template.task.events({
         $TaskEditForm.addClass("hidden");
     },
 
-    "click .TaskEditCancel": function(event, template) {
+    "mousedown .TaskEditCancel": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
         var $TaskButtonDock = $(template.find(".buttonDockRight"));
         var $TaskEditButton = $(template.find(".TaskEditButton"));
@@ -45,7 +45,7 @@ Template.task.events({
         $TaskButtonDock.removeClass('hidden');
         $TaskEditForm.addClass('hidden');
     },
-    "click .TaskComplete": function(event, template) {
+    "mousedown .TaskComplete": function(event, template) {
         Task.update({
             _id: this._id
         }, {
@@ -54,7 +54,7 @@ Template.task.events({
             }
         });
     },
-    "click .TaskStartStop": function(event, template) {
+    "mousedown .TaskStartStop": function(event, template) {
         var curTask = Task.find({
             _id: this._id
         }).fetch()[0];
@@ -74,7 +74,7 @@ Template.task.events({
             }
         });
     },
-    "click .taskBump": function(event) {
+    "mousedown .taskBump": function(event) {
         var taskId = event.currentTarget.id;
         var stackId = event.currentTarget.parentElement.id;
 
@@ -90,7 +90,7 @@ Template.task.events({
             }
         });
     },
-    "click .fbCollaboratorImg": function(event, template) {
+    "mousedown .fbCollaboratorImg": function(event, template) {
         console.log(this);
         this.stack.collaboratorIds.splice(this.stack.collaboratorIds.indexOf(this.id), 1);
         Stack.update({
