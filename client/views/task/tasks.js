@@ -14,7 +14,7 @@ Template.tasks.rendered = function() {
     $(".sortable").each(function() {
         $(this).sortable({
             placeholder: "ui-state-highlight",
-            handle: ".handle",
+            handle: ".TaskHandle",
             axis: "y",
             stop: function(event, ui) {
 
