@@ -5,7 +5,7 @@
       <img class="fbOwnerImage myDropdown" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}" data-toggle="dropdown" />
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <li><a role="menuitem" class="viewStacks" tabindex="-1" href="#">Stacks</a></li>
-          <li><a role="menuitem" class="viewFacebook" tabindex="-1" href="#">Facebook Profile</a></li>
+          <li><a role="menuitem" class="viewFacebook" tabindex="-1" target="_blank" href="{{$fbPageByUserId userId}}">Facebook Profile</a></li>
       </ul>
 
       <div class="StackTitle stackSortHandle">

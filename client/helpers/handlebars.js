@@ -29,6 +29,16 @@ Handlebars.registerHelper('$userNameByUserId',
         return user.length ? user[0].profile.name : 'N/A';
     });
 
+Handlebars.registerHelper('$fbPageByUserId', function(id) {
+    var mark = Session.get('updateCollaboratorsMark');
+
+    var friend = Meteor.users.findOne({
+        _id: id
+    });
+
+    return friend && friend.services && friend.services.facebook ? friend.services.facebook.link : "what";
+})
+
 Handlebars.registerHelper('$fbImageByUserId', function(id) {
     var mark = Session.get('updateCollaboratorsMark');
 
