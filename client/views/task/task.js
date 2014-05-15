@@ -8,7 +8,9 @@ Template.task.events({
         $TaskButtonDock.addClass("hidden");
         $TaskEditForm.removeClass("hidden");
 
+        $TaskEditForm.find("textarea").val($TaskTitle.find(".taskName").text());
         $TaskEditForm.find("textarea").focus();
+
     },
     "click .TaskEditSubmit": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
@@ -26,18 +28,22 @@ Template.task.events({
 
         $TaskTitle.removeClass('hidden');
         $TaskButtonDock.removeClass('hidden');
+        $TaskEditForm.removeClass('hidden');
         $TaskEditForm.addClass("hidden");
     },
 
     "click .TaskEditCancel": function(event, template) {
         var $TaskTitle = $(template.find(".TaskTitle"));
+        var $TaskButtonDock = $(template.find(".buttonDockRight"));
         var $TaskEditButton = $(template.find(".TaskEditButton"));
         var $TaskEditForm = $(template.find(".TaskEditForm"));
 
         $(template.find('textarea')).val("");
+
         $TaskTitle.removeClass("hidden");
         $TaskEditButton.removeClass("hidden");
-        $TaskEditForm.addClass("hidden");
+        $TaskButtonDock.removeClass('hidden');
+        $TaskEditForm.addClass('hidden');
     },
     "click .TaskComplete": function(event, template) {
         Task.update({
