@@ -1,6 +1,6 @@
 <template name="stack">
   <div class="Stack content" id="{{_id}}">
-    <div class="StackHeader stackSortHandle clearfix" id="{{_id}}">
+    <div class="StackHeader clearfix" id="{{_id}}">
       
       <img class="fbOwnerImage myDropdown" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}" data-toggle="dropdown" />
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -8,7 +8,7 @@
           <li><a role="menuitem" class="viewFacebook" tabindex="-1" href="#">Facebook Profile</a></li>
       </ul>
 
-      <div class="StackTitle">
+      <div class="StackTitle stackSortHandle">
         <a href="{{ pathFor 'stackSingle' _id=this._id}}">{{name}}</a>
         <button class="stackIcon StackEditButton">
           <span class="glyphicon glyphicon-pencil"></span>
