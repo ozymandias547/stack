@@ -1,5 +1,5 @@
 Template.stackAdd.events({
-    "mousedown .stackInitAdd": function(event, template) {
+    "click .stackInitAdd": function(event, template) {
         var $addStackInputs = $(template.find(".StackAddInputs"));
         var $addStackNameInput = $(template.find(".StackAddNameInput"));
         var $addStackButton = $(template.find(".stackInitAdd"));
@@ -8,7 +8,7 @@ Template.stackAdd.events({
         $addStackButton.addClass('hidden');
         $addStackNameInput.focus();
     },
-    "mousedown .StackAddSubmit": function(event, template) {
+    "click .StackAddSubmit": function(event, template) {
         event.stopImmediatePropagation();
 
         var $addStackButton = $(template.find(".stackInitAdd"));
@@ -41,7 +41,7 @@ Template.stackAdd.events({
 
         $originalButton.focus();
     },
-    "mousedown .StackAddCancel": function(event, template) {
+    "click .StackAddCancel": function(event, template) {
 
         var $addStackButton = $(template.find(".stackInitAdd"));
         var $addStackInputs = $(template.find(".StackAddInputs"));

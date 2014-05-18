@@ -76,7 +76,6 @@
 .TaskAdd {
     .fontMidWhite;
     cursor: pointer;
-    background-color: @c2;
     margin: 0 0.5em 0.5em 0.5em;
 }
 
@@ -90,6 +89,7 @@
 
     .TaskAdd .TaskAddButton {
         padding: 0.5em;
+        background-color: @c2;
     }
 
         .TaskAdd .TaskAddButton .stackIcon {
@@ -98,6 +98,19 @@
         }
 
     .TaskAdd .TaskAddForm {
+
+        opacity: 0;
+        -webkit-transition: opacity .5s linear;
+
+        height: 0;
+        overflow: hidden;
+        background-color: @c2;
+    }
+
+    .TaskAdd .TaskAddForm.active{
+        display: block;
+        height: auto;
+        opacity: 1;
         padding: 0.5em;
     }
 

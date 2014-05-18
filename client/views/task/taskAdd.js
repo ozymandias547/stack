@@ -6,17 +6,18 @@ Template.TaskAddTpl.helpers({
 
 Template.TaskAddTpl.events({
 
-    "mousedown .TaskAddButton": function(event, template) {
+    "click .TaskAddButton": function(event, template) {
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
 
         $addTaskButton.addClass("hidden");
-        $TaskAddForm.removeClass("hidden");
 
+        $TaskAddForm.addClass("active");
+        
         $TaskAddForm.find("textarea").focus();
     },
 
-    "mousedown .TaskAddSubmit": function(event, template) {
+    "click .TaskAddSubmit": function(event, template) {
 
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
@@ -49,14 +50,14 @@ Template.TaskAddTpl.events({
         $TaskAddButton.find('a').focus();
     },
 
-    "mousedown .TaskAddCancel": function(event, template) {
+    "click .TaskAddCancel": function(event, template) {
         var $addTaskButton = $(template.find(".TaskAddButton"));
         var $TaskAddForm = $(template.find(".TaskAddForm"));
         var $TaskAddButton = $(template.find(".TaskAddButton"));
 
         $(template.find('textarea')).val("");
         $addTaskButton.removeClass("hidden");
-        $TaskAddForm.addClass("hidden");
+        $TaskAddForm.removeClass("active");
 
         $TaskAddButton.find('a').focus();
     }
