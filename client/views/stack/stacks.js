@@ -7,10 +7,9 @@ Template.stacks.helpers({
                 priority: -1
             }
         }).fetch().filter(function(stack) {
-            var stackMatch = regExpFilter && regExpFilter.test(JSON.stringify(stack));
-            var tasks = getTasksFor(stack._id);
-            stack.tasks = stackMatch ? tasks.all : tasks.filtered;
-            return !regExpFilter || stack.tasks.length > 0 || stackMatch;
+            stack.filterMatch = regExpFilter && regExpFilter.test(JSON.stringify(stack));
+            stack.tasks = getTasksFor(stack._id);
+            return !regExpFilter || stack.tasks.allFiltered.length > 0 || stack.filterMatch;
         });
     }
 });

@@ -1,11 +1,8 @@
 // Gets all the tasks for a specific stack _id
 
 getTasksFor = function(stackId) {
-    var tasks = Task.find({
-        stackId: stackId,
-        state: {
-            $ne: 1
-        }
+    var all = Task.find({
+        stackId: stackId
     }, {
         sort: {
             priority: 1
@@ -13,20 +10,23 @@ getTasksFor = function(stackId) {
     }).fetch();
 
     var regExpFilter = buildRegExpFromUserFilter(Session.get('regExpFilter'));
-    var result = [];
+    var allFiltered = [];
+    var byStateFiltered = {};
 
     // Linkify and filter by regexp
-    for (var i = 0; i < tasks.length; i++) {
-        var task = tasks[i];
-        if (regExpFilter !== undefined && !regExpFilter.test(JSON.stringify(tasks[i])))
+    for (var i = 0; i < all.length; i++) {
+        var task = all[i];
+        var key = task.state !== undefined ? task.state : 0;
+        byStateFiltered[key] = byStateFiltered[key] !== undefined ? byStateFiltered[key].concat([task]) : [task];
+        if (regExpFilter !== undefined && !regExpFilter.test(JSON.stringify(all[i])))
             continue;
 
         if (regExpFilter)
             task = JSON.parse(JSON.stringify(task).replace(regExpFilter, '<div class=\'filterHighlight\'>$1</div>'));
 
-        result.push(task);
+        allFiltered.push(task);
 
-        tasks[i].name = linkify(tasks[i].name, {
+        all[i].name = linkify(all[i].name, {
             callback: function(name, href) {
                 return href ? ('<a href=\'' + href + '\' target=\'_blank\'>' + name + '</a>') : name;
             }
@@ -34,8 +34,9 @@ getTasksFor = function(stackId) {
     }
 
     return {
-        all: tasks,
-        filtered: result
+        all: all,
+        allFiltered: allFiltered,
+        byStateFiltered: byStateFiltered
     };
 };
 

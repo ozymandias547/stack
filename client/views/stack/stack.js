@@ -7,6 +7,12 @@ Template.stack.helpers({
                 id: id
             };
         }) : [];
+    },
+    taskOpenCount: function(stack) {
+
+    },
+    taskCompletedCount: function(stack) {
+
     }
 });
 

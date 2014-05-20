@@ -1,12 +1,6 @@
 Template.tasks.helpers({
-    tasks: function () {
-
-        // Double check that tasks have been joined to the collection
-        if (!this.tasks) {
-            return getTasksFor(this._id).all;
-        }
-        else return this.tasks;
-            
+    tasks: function() {
+        return this.tasks.byStateFiltered[0];
     }
 });
 
@@ -22,7 +16,7 @@ Template.tasks.rendered = function() {
                     before = ui.item.prev().get(0),
                     after = ui.item.next().get(0),
                     newRank;
-                
+
                 if (!before) {
                     newRank = SimpleRationalRanks.beforeFirst(UI.getElementData(after).priority);
                 } else if (!after) {
