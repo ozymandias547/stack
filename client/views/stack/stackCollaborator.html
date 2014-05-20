@@ -1,6 +1,6 @@
 <template name="stackCollaborator">
-    <div class="stackCollaboratorContainer">
-        <img class="fbCollaboratorImg fbPhotoMini contributorImg myDropdown" title="{{$userNameByUserId this.id}}" alt="{{$userNameByUserId this.id}}" src="{{$fbImageByUserId this.id}}" data-toggle="dropdown" />
+    <div class="collaboratorContainer">
+        <img class="collaboratorImg myDropdown" title="{{$userNameByUserId this.id}}" alt="{{$userNameByUserId this.id}}" src="{{$fbImageByUserId this.id}}" data-toggle="dropdown" />
         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
             <li><a role="menuitem" class="removeCollaborator" tabindex="-1" href="#">Remove {{$userNameByUserId this.id}}</a></li>
             <li><a role="menuitem" class="viewFacebook" tabindex="-1" target="_blank" href="{{$fbPageByUserId this.id}}">Facebook Profile</a></li>

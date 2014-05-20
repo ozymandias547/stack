@@ -13,7 +13,7 @@ Template.TaskAddTpl.events({
         $addTaskButton.addClass("hidden");
 
         $TaskAddForm.addClass("active");
-        
+
         $TaskAddForm.find("textarea").focus();
     },
 
@@ -45,7 +45,7 @@ Template.TaskAddTpl.events({
 
         $(template.find('textarea')).val('');
         $addTaskButton.removeClass("hidden");
-        $TaskAddForm.addClass("hidden");
+        $TaskAddForm.removeClass("active");
 
         $TaskAddButton.find('a').focus();
     },

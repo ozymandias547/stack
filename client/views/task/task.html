@@ -8,7 +8,9 @@
     <div class="TaskHandle">
       <span class="handle glyphicon glyphicon-align-justify" ></span>
     </div>
+    
     <div class="TaskTitle">
+      <img class="collaboratorImg imgTiny myDropdown" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}" data-toggle="dropdown" />
       <span class="taskName">{{{name}}}</span>
       <div class="TaskEditButton">
         <span class="glyphicon glyphicon-pencil"></span>
