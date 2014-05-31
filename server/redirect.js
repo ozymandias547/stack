@@ -6,8 +6,15 @@ WebApp.connectHandlers.use(function(req, res, next) {
 
 	if (url.indexOf(domain) != -1 && url.indexOf('www') == -1) {
 		var redirectURL = url.replace(domain, 'www.' + domain);
+		var redirectURL = redirectURL.indexOf('http://') == -1 ? 'http://' + redirectURL : redirectURL;
 
-		/* Redirect to the proper address */
+		// Example redirect:
+		//
+		// HTTP/1.1 301 Moved Permanently
+		// Location: http://www.example.org/
+		// Content-Type: text/html
+		// Content-Length: 174
+
 		res.writeHead(301, {
 			'Content - Type': 'text/html; charset=UTF-8',
 			Location: redirectURL
