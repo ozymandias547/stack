@@ -1,13 +1,14 @@
 <template name="task">
   <div class="Task ui-state-default clearfix">
-    <div class="buttonDockRight">
-      <button id="stackRowAddInputButton" class="stackIcon TaskComplete">
-        <span class="glyphicon glyphicon-ok-circle"></span>
+    <!-- <div class="buttonDockRight">
+      <button class="TaskHandle">
+        <span class="handle glyphicon glyphicon-align-justify" ></span>
       </button>
-    </div>
-    <div class="TaskHandle">
-      <span class="handle glyphicon glyphicon-align-justify" ></span>
-    </div>
+    </div> -->
+
+    <button class="stackIcon TaskComplete">
+      <span class="glyphicon glyphicon-ok-circle"></span>
+    </button>
     
     <div class="TaskTitle">
       <img class="collaboratorImg imgTiny myDropdown" title="{{$userNameByUserId userId}}" alt="{{$userNameByUserId userId}}" src="{{$fbImageByUserId userId}}" data-toggle="dropdown" />
